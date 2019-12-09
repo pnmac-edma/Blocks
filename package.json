@@ -46,7 +46,7 @@
     ]
   },
   "devDependencies": {
-    "@edma/design-tokens": "^4.0.0",
+    "@edma/design-tokens": "^4.0.1",
     "react-selectize": "^3.0.1",
     "react-styleguidist": "^9.1.14"
   }
