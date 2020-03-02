@@ -3,10 +3,7 @@ import Package from '../package.json';
 import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import color from '@edma/design-tokens/js/color';
-import fontSize from '@edma/design-tokens/js/fontSize';
-import weight from '@edma/design-tokens/js/weight';
-import spacing from '@edma/design-tokens/js/spacing';
+import { color, fontSize, weight, spacing } from '@edma/design-tokens/';
 import Routing from './components/Routing';
 
 // Current version synced from package.json
