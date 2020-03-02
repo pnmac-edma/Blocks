@@ -1,0 +1,46 @@
+.component--1 {
+  animation: wiggle 9s ease-in-out infinite;
+  transform-origin: 90% 100% 0;
+}
+
+.component--2 {
+  animation: wiggle2 9s ease-in-out infinite;
+  transform-origin: 90% 100% 0;
+}
+
+.component--3 {
+  animation: wiggle 6s ease-in-out infinite reverse;
+  transform-origin: 50% 100% 0;
+}
+
+.component--4 {
+  animation: wiggle3 9s ease-in-out infinite reverse;
+  transform-origin: 50% 100% 0;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(5px, 3px);
+  }
+}
+
+@keyframes wiggle2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2px, -5px);
+  }
+}
+
+@keyframes wiggle3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-5px, -3px);
+  }
+}

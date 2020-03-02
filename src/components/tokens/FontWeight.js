@@ -1,13 +1,18 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import color from '@edma/design-tokens/js/color';
-import font from '@edma/design-tokens/js/font';
-import fontSize from '@edma/design-tokens/js/fontSize';
-import fontWeight from '@edma/design-tokens/js/weight';
+import {
+    Box,
+    Divider,
+    Grid,
+    Paper,
+    Tab,
+    Tabs,
+    Typography
+} from '@material-ui/core/';
+import { Link } from "react-router-dom";
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { color, font, fontSize, weight } from '@edma/design-tokens/';
 import jsonFontWeight from '@edma/design-tokens/json/weight';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokaiSublime } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -17,13 +22,6 @@ const useStyles = makeStyles (theme => ({
     root: {
         display: 'flex',
     },
-    tabs: {
-        display: 'inline-block',
-        overflow: 'hidden',
-    },
-    tab: {
-        minWidth: 75,
-    },
     flexCards: {
         display: 'inline-flex',
         justifyContent: 'space-between',
@@ -31,12 +29,20 @@ const useStyles = makeStyles (theme => ({
         maxWidth: '100%',
         flexBasis: '100%',
     },
-    toolbar: theme.mixins.toolbar,
+    tabs: {
+        display: 'inline-block',
+        overflow: 'hidden',
+        marginTop: '1rem',
+        background: theme.palette.type === 'light' ? color.g100 : color.g700
+    },
+    tab: {
+        minWidth: 75
+    },
     content: {
-        margin: 40,
         flexGrow: 1,
-        padding: theme.spacing(2),
-        textAlign: 'left',
+        padding: theme.spacing(1),
+        background: theme.palette.type === 'light' ? color.white : color.black,
+        textAlign: 'left'
     },
     codeBlock: {
         padding: '40px !important',
@@ -51,20 +57,69 @@ const useStyles = makeStyles (theme => ({
     fontWeightName: {
         color: theme.palette.type === 'light' ? color.b400 : color.b200,
         fontFamily: font.mono,
-        fontWeight: fontWeight['regular'],
+        fontWeight: weight['regular'],
+        fontSize: fontSize['body0']
     },
     mono: {
-        fontWeight: fontWeight['regular'],
+        fontWeight: weight['regular'],
         fontFamily: font.mono,
     },
     demo: {
-        fontSize: fontSize[3],
+        fontSize: fontSize['h3'],
     },
+    prev: {
+        position: 'relative',
+        marginTop: '2rem',
+        width: '100%',
+        textAlign: 'left',
+
+        '& a': {
+            color: theme.palette.type === 'light' ? color.black : color.white,
+            padding: 16,
+            borderRadius: 4,
+            transition: 'all .2s ease-in-out',
+            textDecoration: 'none',
+
+            '&:hover': {
+                background: theme.palette.type === 'light' ? color.g100 : color.g900
+            },
+
+            '& svg': {
+                position: 'relative',
+                top: 6,
+                right: 4
+            }
+        }
+    },
+    next: {
+        position: 'relative',
+        marginTop: '2rem',
+        width: '100%',
+        textAlign: 'right',
+
+        '& a': {
+            color: theme.palette.type === 'light' ? color.black : color.white,
+            padding: 16,
+            borderRadius: 4,
+            transition: 'all .2s ease-in-out',
+            textDecoration: 'none',
+
+            '&:hover': {
+                background: theme.palette.type === 'light' ? color.g100 : color.g900
+            },
+
+            '& svg': {
+                position: 'relative',
+                top: 6,
+                left: 8
+            }
+        }
+    }
 }));
 
 const FontWeight = () => {
     const custom = useStyles();
-    const jsCodeString = JSON.stringify(fontWeight, null, 1);
+    const jsCodeString = JSON.stringify(weight, null, 1);
     const jsonCodeString = JSON.stringify(jsonFontWeight, null, 1);
     const scssCodeString = `
 $weight-bold: 700;
@@ -86,11 +141,14 @@ $weight-ultralight: 100;`;
     }
 
     return (
-        <main className={custom.content}>
+        <Box className={`Content-inner ${custom.content}`} boxShadow={16}>
             <ScrollToTopController />
-            <div className={custom.toolbar} />
-            <div className='content'>
-                <h2>Font Weight</h2>
+            <div className='inner-content'>
+                <Typography variant="h1">Design Tokens</Typography>
+                <Typography variant="h3">Font Weight</Typography>
+                <Box mt={7} mb={7}>
+                    <Divider className={custom.divider} />
+                </Box>
                 <Paper className={custom.tabs}>
                     <Tabs
                         value={value}
@@ -142,9 +200,9 @@ ${jsonCodeString}
                 </SyntaxHighlighter>
                 <Grid container spacing={2}>
                     {
-                        Object.keys(fontWeight).map((key, index) => (
+                        Object.keys(weight).map((key, index) => (
                             <Grid item className={custom.flexCards} key={key}>
-                                <Paper className={custom.fontWeight} style={{fontWeight: fontWeight[key]}}>
+                                <Paper className={custom.fontWeight} style={{fontWeight: weight[key]}}>
                                     <div className={custom.demo}>{key}</div>
                                     {
                                         value === 0 ?
@@ -164,14 +222,30 @@ ${jsonCodeString}
                                                 <div className={custom.fontWeightName}>weight['{key}'].value</div>
                                             </>
                                     }
-                                    <div className={custom.mono}>({fontWeight[key]})</div>
+                                    <div className={custom.mono}>({weight[key]})</div>
                                 </Paper>
                             </Grid>
                         ))
                     }
                 </Grid>
+                <div className="Content__wrapper">
+                    <div className="Content__section">
+                        <Box className={custom.prev}>
+                            <Typography variant="body2">
+                                <Link to="/tokens/font-size"><ArrowBackIosIcon />Design Tokens: Font Size</Link>
+                            </Typography>
+                        </Box>
+                    </div>
+                    <div className="Content__section">
+                        <Box className={custom.next}>
+                            <Typography variant="body2">
+                                <Link to="/tokens/line-height">Design Tokens: Line Height<ArrowForwardIosIcon /></Link>
+                            </Typography>
+                        </Box>
+                    </div>
+                </div>
             </div>
-        </main>
+        </Box>
     );
 }
 

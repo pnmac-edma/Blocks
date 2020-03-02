@@ -1,289 +1,250 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ArrowRight from '@material-ui/icons/ArrowRight';
-import CheckRounded from '@material-ui/icons/CheckRounded';
-import Button from '@material-ui/core/Button';
+import {
+  Box,
+  Divider,
+  List,
+  ListItem,
+  Typography
+} from '@material-ui/core';
+import { Link } from "react-router-dom";
+import borderRadius from '@edma/design-tokens/js/borderRadius';
 import color from '@edma/design-tokens/js/color';
 import fontSize from '@edma/design-tokens/js/fontSize';
 import ScrollToTopController from './components/ScrollToTopController';
+import { ReactComponent as GettingStartedLight } from './assets/img/graphic.gettingstarted.light.svg';
+import { ReactComponent as GettingStartedDark } from './assets/img/graphic.gettingstarted.dark.svg';
+import { ReactComponent as ComponentsLight } from './assets/img/graphic.components.light.svg';
+import { ReactComponent as ComponentsDark } from './assets/img/graphic.components.dark.svg';
+import { ReactComponent as HouseLight } from './assets/img/graphic.house.light.svg';
+import { ReactComponent as HouseDark } from './assets/img/graphic.house.dark.svg';
+import { ReactComponent as FoundationIcon } from './assets/img/icon.foundation.svg';
+import { ReactComponent as DesignIcon } from './assets/img/icon.design.svg';
+import { ReactComponent as ComponentsIcon } from './assets/img/icon.components.svg';
+import { ReactComponent as PatternsIcon } from './assets/img/icon.patterns.svg';
 
 const useStyles = makeStyles(theme => ({
-  toolbar: {
-    height: '30vw',
-
-    [theme.breakpoints.up('lg')]: {
-      height: '20vw',
-    },
-
-    [theme.breakpoints.up('md')]: {
-      height: '15vw',
-    },
-  },
   content: {
-    margin: 40,
-    flexGrow: 1,
-    padding: theme.spacing(2),
-    [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(3),
-    }
+    background: theme.palette.type === 'light' ? color.white : color.black,
+    borderRadius: 10
   },
-  flexCards: {
-    display: 'inline-flex',
-    justifyContent: 'space-between',
-    flexWrap: 'no-wrap',
-    width: '100%',
+  caption: {
+    fontFamily: 'Open Sans',
+    color: theme.palette.type === 'light' ? color.g700 : color.g300,
+    minWidth: 260
+  },
+  divider: {
+    height: 4,
+    color: theme.palette.type === 'light' ? color.g100 : color.g700
+  },
+  updates: {
+    display: 'table-cell',
+    background: theme.palette.type === 'light' ? color.g100 : color.g800,
+    borderRadius: borderRadius[1],
+    padding: 32
+  },
+  resources: {
+    display: 'table-cell',
+    padding: 32
   },
   anchor: {
-    color: theme.palette.type === 'light' ? color.b400 : color.b300,
-
-    '&:hover': {
-      textDecoration: 'none',
-    },
-  },
-  button: {
-    color: theme.palette.type === 'light' ? color.b400 : color.b300,
-    borderColor: theme.palette.type === 'light' ? color.b400 : color.b300,
-    textDecoration: 'none',
-
-    '&:not(:first-of-type)': {
-      margin: theme.spacing(2),
-    },
+    color: theme.palette.type === 'light' ? color.b700 : color.b200,
   },
   inlineCode: {
     background: theme.palette.type === 'light' ? color.g200 : color.g700,
     fontSize: fontSize['0'],
-  },
-  blocks: {
-    color: theme.palette.type === 'light' ? color.v700 : color.y300,
   }
 }));
 
-let divs = [];
+let captions = require('./captions.json'),
+  caption = captions[Math.floor(Math.random()*captions.length)];
 
 export default function Home(props) {
   const custom = useStyles();
   const theme = useTheme();
-  const lightColorArray = [
-    color.b200, color.b300, color.p200, color.p300, color.r200,
-    color.r300, color.g300, color.g400, color.g500,
-  ];
-  const darkColorArray = [
-    color.b200, color.b300, color.p200, color.p300, color.r200,
-    color.r300, color.g300, color.g200,
-  ];
-  let blocksContainer = createRef();
-
-  window.addEventListener('scroll', (e) => {
-    const scrolled = window.pageYOffset,
-          block = blocksContainer.current;
-
-    if (scrolled <= 530) {
-      let blockCoords = (0 - (scrolled *0.40) + 'px'),
-          blockOpacity = (1 - (scrolled *0.004));
-
-      if (block) {
-        block.style.marginTop = blockCoords;
-        block.style.opacity = blockOpacity;
-      }
-    }
-  });
-
-  const generateBlocks = (qty) => {
-    for (let i = 0; i < divs.length; i++) {
-      if (divs[i].style.opacity === 0)
-        divs[i].remove();
-    }
-
-    setTimeout(() => {
-      for (let i = 0; i < qty; i++) {
-        const classy = 'block block-' + i;
-        let randomColor;
-        if (theme.palette.type === 'light') {
-          randomColor = lightColorArray[Math.floor(Math.random()*lightColorArray.length)];
-        } else {
-          randomColor = darkColorArray[Math.floor(Math.random()*darkColorArray.length)];
-        }
-        let d = document.createElement("div");
-
-        d.style.cssText = `background-color: ${randomColor}`;
-        //d.style.opacity = '0.5';
-        d.className = classy;
-        if (blocksContainer.current)
-          blocksContainer.current.appendChild(d);
-
-        for (let j = 0; j < 40; j++) {
-          let randomDisplay = Math.floor(Math.random()*qty);
-
-          setTimeout(() => {
-            if (classy === 'block block-' + randomDisplay) {
-              d.style.opacity = 0.5;
-            }
-          }, randomDisplay*10);
-        }
-      }
-    }, 0);
-  };
-
-  generateBlocks(31);
 
   return (
-    <main className={custom.content}>
-      <div ref={blocksContainer} />
+    <main className="Main">
       <ScrollToTopController />
-      <div className={custom.toolbar} />
-      <div className="content" >
-        <Typography variant="h5">
-          Building blocks for rapidly creating consistent, high quality design and front end experiences. <span className={custom.blocks}>Blocks</span> gives you design principles, tokens, and stateless React components that are easy to use.
-        </Typography>
-
-        <Box mt={7}>
-          <Divider />
-        </Box>
-
-        <Box mt={10}>
-          <Typography variant="h3" gutterBottom>
-            Getting Started
+      <div className="Main__header">
+        <div className="Main__left-header">
+          <Typography variant="h1" className="Main__right-header">
+            Home
           </Typography>
-        </Box>
-        <Box mt={10}>
-          <Typography variant="body1" gutterBottom>
-            Blocks is foundationally Google Material UI, with modified components and additional features built on top, designed to meet PennyMac's specific needs. Blocks is flexible. It changes with PennyMac, as those needs evolve over time.<br/><br/>
-            Some reasons why you should consider building with Blocks:
+          <Typography variant="h3">
+            {caption}
           </Typography>
-          <List>
-            <ListItem dense>
-            <ListItemIcon>
-                <CheckRounded />
-              </ListItemIcon>
-              <ListItemText primary="Faster design means more designs" secondary="The Figma pattern library and Material UI give designers the components they need to build beautiful, functional interfaces, without wasting time reinventing wheels." />
-            </ListItem>
-            <ListItem dense>
-              <ListItemIcon>
-                <CheckRounded />
-              </ListItemIcon>
-              <ListItemText primary="Automated documentation" secondary="Documentation is foundational to Blocks components, and automatically generated from inline comments by React-docgen and React-styleguidist." />
-            </ListItem>
-            <ListItem dense>
-              <ListItemIcon>
-                <CheckRounded />
-              </ListItemIcon>
-              <ListItemText primary="Lean and DRY" secondary="Blocks apps share the same foundational code, which means devs never write the same code twice, which leads to less bloated and ultimately more performant codebases and faster development cycles." />
-            </ListItem>
-            <ListItem dense>
-              <ListItemIcon>
-                <CheckRounded />
-              </ListItemIcon>
-              <ListItemText primary="Easy to theme" secondary="Material UI's built in theme tools provide simple yet powerful cross-platform visual controls for theming any app." />
-            </ListItem>
-            <ListItem dense>
-              <ListItemIcon>
-                <CheckRounded />
-              </ListItemIcon>
-              <ListItemText primary="More heads are better" secondary="Deep integration with the Figma REST API helps to automate design token handoff, enabling designers to hand off production-ready code assets and better collaborate with developers." />
-            </ListItem>
-            <ListItem dense>
-              <ListItemIcon>
-                <CheckRounded />
-              </ListItemIcon>
-              <ListItemText primary="Reusable things get used more" secondary="Blocks' library of reusable components grows over time, reducing the time required to build apps each time." />
-            </ListItem>
-            <ListItem dense>
-              <ListItemIcon>
-                <CheckRounded />
-              </ListItemIcon>
-              <ListItemText primary="Principled practice" secondary="Core design principles act as a set of foundational guides, to ensure that components always work for the user." />
-            </ListItem>
-          </List>
-        </Box>
-        <Box mt={7}>
-          <Divider />
-        </Box>
-        <Box mt={10}>
-          <Typography variant="h5" gutterBottom>
-            Working With &amp; Contributing To Blocks
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            There are two paths to working with Blocks; one for designers, the other for front end developers. In order to use Blocks, you will need a recent version of Node (10+) with NPM installed.
-          </Typography>
-        </Box>
-        <Box mt={5}>
-          <Typography variant="h6">
-            For Designers
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            Designing with Blocks essentially means working in Figma and Principle. Figma is used for creating and exporting design tokens, as well as mocking up static screens and components. Principle is used for mocking up interaction designs, such as hover, drag, and click interactions. <br/><br/>
-
-            <a href='https://www.figma.com/file/SKkSxha8LQG7lPvIJ2PWHf/Design-Tokens?node-id=0%3A1' target='_blank' rel="noopener noreferrer" className={custom.button}>
-              <Button color="primary" variant="outlined" className={custom.button}>View Figma Tokens</Button>
-            </a>
-            <a href='https://www.figma.com/file/k9LG6iA4oKNiCyIc9TrNmD/Material-Theme?node-id=0%3A2' target='_blank' rel="noopener noreferrer" className={custom.button}>
-              <Button color="primary" variant="outlined" className={custom.button}>View Material Theme</Button>
-            </a><br/><br/>
-          </Typography>
-          <List>
-            <ListItem>
-              <ListItemIcon>
-                <ArrowRight />
-              </ListItemIcon>
-              <ListItemText>Open the <a href='https://www.figma.com/files/team/720698272864929877/EDMA' target='_blank' rel="noopener noreferrer" className={custom.anchor}>EDMA Team</a> in Figma</ListItemText>
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <ArrowRight />
-              </ListItemIcon>
-              <ListItemText>Create a new project within the EDMA team, or load an existing project</ListItemText>
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <ArrowRight />
-              </ListItemIcon>
-              <ListItemText>Design stuff!</ListItemText>
-            </ListItem>
-          </List>
-        </Box>
-        <Box mt={5}>
-          <Typography variant="h6">
-            For Developers
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            Blocks contains a variety of tools that can help expedite, and even automate, some front end development tasks. The front end stack is built with React.js, and leverages the <a href="https://material-ui.com/" target="_blank" rel="noopener noreferrer" className={custom.anchor}>Material-UI</a> React library. Tooling includes a <a href="https://gitlab.pnmac.com/ent-bi-tech/design-tokens" target="_blank" rel="noopener noreferrer" className={custom.anchor}>design token generator</a> that also uses <a href="https://github.com/amzn/style-dictionary" target="_blank" rel="noopener noreferrer" className={custom.anchor}>AWS Style Dictionary</a>. <br/><br/>
-
-            <a href='https://gitlab.pnmac.com/ent-bi-tech/design-docs' target='_blank' rel="noopener noreferrer" className={custom.button}>
-              <Button color="primary" variant="outlined" className={custom.button}>View Blocks Repository</Button>
-            </a>
-            <a href='https://gitlab.pnmac.com/ent-bi-tech/design-tokens' target='_blank' rel="noopener noreferrer" className={custom.button}>
-              <Button color="primary" variant="outlined" className={custom.button}>View Design-tokens Repository</Button>
-            </a><br/><br/>
-          </Typography>
-          <List>
-            <ListItem>
-              <ListItemIcon>
-                <ArrowRight />
-              </ListItemIcon>
-              <ListItemText>Scaffold a new react app using <a href='https://github.com/facebook/create-react-app' target='_blank' rel="noopener noreferrer" className={custom.anchor}>Create-react-app</a> and add it to a new repository in <a href="https://gitlab.pnmac.com/ent-bi-tech" target='_blank' rel="noopener noreferrer" className={custom.anchor}>GitLab</a></ListItemText>
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <ArrowRight />
-              </ListItemIcon>
-              <ListItemText>Install Blocks and Design Tokens in your repo as dev dependencies by running<br/><code className={custom.inlineCode}>npm i @edma/blocks @edma/tokens --save-dev</code></ListItemText>
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <ArrowRight />
-              </ListItemIcon>
-              <ListItemText>Install Material-UI by following the <a href="https://material-ui.com/getting-started/installation/" target="_blank" rel="noopener noreferrer" className={custom.anchor}>Material-UI Documentation</a></ListItemText>
-            </ListItem>
-          </List>
-        </Box>
+        </div>
+        <div className={`Main__right-header${props.transitioning ? " is-transitioning" : ""}`}>
+          {
+            theme.palette.type === 'light' ?
+              <HouseLight />
+            :
+              <HouseDark />
+          }
+        </div>
       </div>
+
+      <Box className={`Content ${custom.content}`} boxShadow={16}>
+        <div className="Content__wrapper">
+          <div className="Content__section">
+            <Typography variant="h2">
+              Getting Started
+            </Typography>
+            <Typography variant="h3">
+              These guides will show you how Home can help you design for PennyMac platforms.
+            </Typography>
+            <List className="Content__list">
+              <ListItem>
+                <Link key='0' to='/foundation/getting-started' className={custom.anchor}>Design Foundation</Link>
+              </ListItem>
+              <ListItem>
+                <Link key='0' to='/brand/getting-started' className={custom.anchor}>Brand Guidelines</Link>
+              </ListItem>
+              <ListItem>
+                <Link key='0' to='/tokens/getting-started' className={custom.anchor}>Using Design Tokens</Link>
+              </ListItem>
+              <ListItem>
+                <Link key='0' to='/contribute' className={custom.anchor}>Contributing to Home</Link>
+              </ListItem>
+            </List>
+          </div>
+          <div className="Content__section">
+          {
+            theme.palette.type === 'light' ?
+              <GettingStartedLight />
+            :
+              <GettingStartedDark />
+          }
+          </div>
+        </div>
+        <div className="Content__wrapper">
+          <div className="Content__section">
+          {
+            theme.palette.type === 'light' ?
+              <ComponentsLight />
+            :
+              <ComponentsDark />
+          }
+          </div>
+          <div className="Content__section">
+            <Typography variant="h2">
+              Components
+            </Typography>
+            <Typography variant="h5" className={custom.caption}>
+              Reusable building blocks that make it easy to rapidly create new product and features.
+            </Typography>
+            <List className="Content__list">
+              <ListItem>
+                <Link key='0' to='/components/getting-started' className={custom.anchor}>Using Components</Link>
+              </ListItem>
+              <ListItem>
+                <Link key='0' to='/components/' className={custom.anchor}>Storybook Component Library</Link>
+              </ListItem>
+            </List>
+          </div>
+        </div>
+        <Box mt={7}>
+          <Divider className={custom.divider} />
+        </Box>
+        <Box>
+          <div className="Content__bottom-section">
+            <FoundationIcon />
+            <Typography variant="h6">
+              Foundation
+            </Typography>
+            <Typography variant="body2" className="Content__pg">
+              Find out how we make sure that our design is accessible, user focused, and intentional.
+            </Typography>
+            <Typography variant="body2" className="Content__pg">
+              <Link key='0' to='/content' className={custom.anchor}>View Core Principles</Link>
+            </Typography>
+          </div>
+          <div className="Content__bottom-section">
+            <DesignIcon />
+            <Typography variant="h6">
+              Brand
+            </Typography>
+            <Typography variant="body2" className="Content__pg">
+              Learn how we use design to maintain a consistent and friendly brand image.
+            </Typography>
+            <Typography variant="body2" className="Content__pg">
+            <Link key='0' to='/brand/getting-started' className={custom.anchor}>View Brand Guidelines</Link>
+            </Typography>
+          </div>
+          <div className="Content__bottom-section">
+            <PatternsIcon />
+            <Typography variant="h6">
+              Patterns
+            </Typography>
+            <Typography variant="body2" className="Content__pg">
+              See how we put the pieces together to create meaningful product experiences.
+            </Typography>
+            <Typography variant="body2" className="Content__pg">
+            <Link key='0' to='/patterns' className={custom.anchor}>View Pattern Library</Link>
+            </Typography>
+          </div>
+          <div className="Content__bottom-section">
+            <ComponentsIcon />
+            <Typography variant="h6">
+              Components
+            </Typography>
+            <Typography variant="body2" className="Content__pg">
+              Use components as building blocks while you develop new products and features.
+            </Typography>
+            <Typography variant="body2" className="Content__pg">
+              <Link key='0' to='/components' className={custom.anchor}>View Component Library</Link>
+            </Typography>
+          </div>
+        </Box>
+        <Box mb={8}>
+          <Divider className={custom.divider} />
+        </Box>
+        <Box className="Content__wrapper">
+          <div className={`Content__section ${custom.updates}`}>
+            <Typography variant="h6">
+              What's New
+            </Typography>
+            <Typography variant="h4">
+              Home v0.0.1
+            </Typography>
+            <Typography variant="body2" className="Content__pg">
+              A new and improved version of the PennyMac design system, now called Home! Upgrade to Home v0.0.1 to explore new possibilities for your apps and projects.
+            </Typography>
+            <Typography variant="body2" className="Content__pg">
+              <Link key='0' to='/release' className={custom.anchor}>View Full Release Notes</Link>
+            </Typography>
+          </div>
+          <div className={`Content__section ${custom.resources}`}>
+            <Typography variant="h6">
+              Resources
+            </Typography>
+            <Typography variant="body2" className="Content__pg">
+              Downloads, links, and third-party tools to help you and your team design and build products for PennyMac.
+            </Typography>
+            <List className="Content__list">
+              <ListItem>
+                <Link key='0' to='/kirby-api' className={custom.anchor}>Kirby GraphQL API</Link>
+              </ListItem>
+              <ListItem>
+                <Link key='0' to='/kirby-ui' className={custom.anchor}>Kirby UI Kit</Link>
+              </ListItem>
+              <ListItem>
+                <Link key='0' to='/rubix-api' className={custom.anchor}>Rubix REST API</Link>
+              </ListItem>
+              <ListItem>
+                <Link key='0' to='/rubix-ui' className={custom.anchor}>Rubix UI Kit</Link>
+              </ListItem>
+              <ListItem>
+                <Link key='0' to='/rims-api' className={custom.anchor}>RIMS REST API</Link>
+              </ListItem>
+              <ListItem>
+                <Link key='0' to='/rims-ui' className={custom.anchor}>RIMS UI Kit</Link>
+              </ListItem>
+            </List>
+          </div>
+        </Box>
+      </Box>
     </main>
   )
 };

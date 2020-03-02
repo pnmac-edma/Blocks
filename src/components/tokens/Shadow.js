@@ -1,13 +1,18 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import color from '@edma/design-tokens/js/color';
-import font from '@edma/design-tokens/js/font';
-import fontSize from '@edma/design-tokens/js/fontSize';
-import shadow from '@edma/design-tokens/js/shadow';
+import {
+    Box,
+    Divider,
+    Grid,
+    Paper,
+    Tab,
+    Tabs,
+    Typography
+} from '@material-ui/core/';
+import { Link } from "react-router-dom";
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { color, font, fontSize, shadow } from '@edma/design-tokens/';
 import jsonShadow from '@edma/design-tokens/json/shadow';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokaiSublime } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -17,13 +22,6 @@ const useStyles = makeStyles (theme => ({
     root: {
         display: 'flex',
     },
-    tabs: {
-        display: 'inline-block',
-        overflow: 'hidden',
-    },
-    tab: {
-        minWidth: 75,
-    },
     flexCards: {
         display: 'inline-flex',
         justifyContent: 'space-between',
@@ -31,12 +29,20 @@ const useStyles = makeStyles (theme => ({
         maxWidth: '100%',
         flexBasis: '100%',
     },
-    toolbar: theme.mixins.toolbar,
+    tabs: {
+        display: 'inline-block',
+        overflow: 'hidden',
+        marginTop: '1rem',
+        background: theme.palette.type === 'light' ? color.g100 : color.g700
+    },
+    tab: {
+        minWidth: 75
+    },
     content: {
-        margin: 40,
         flexGrow: 1,
-        padding: theme.spacing(2),
-        textAlign: 'left',
+        padding: theme.spacing(1),
+        background: theme.palette.type === 'light' ? color.white : color.black,
+        textAlign: 'left'
     },
     codeBlock: {
         padding: '40px !important',
@@ -58,6 +64,54 @@ const useStyles = makeStyles (theme => ({
     demo: {
         fontSize: fontSize[3],
     },
+    prev: {
+        position: 'relative',
+        marginTop: '2rem',
+        width: '100%',
+        textAlign: 'left',
+
+        '& a': {
+            color: theme.palette.type === 'light' ? color.black : color.white,
+            padding: 16,
+            borderRadius: 4,
+            transition: 'all .2s ease-in-out',
+            textDecoration: 'none',
+
+            '&:hover': {
+                background: theme.palette.type === 'light' ? color.g100 : color.g900
+            },
+
+            '& svg': {
+                position: 'relative',
+                top: 6,
+                right: 4
+            }
+        }
+    },
+    next: {
+        position: 'relative',
+        marginTop: '2rem',
+        width: '100%',
+        textAlign: 'right',
+
+        '& a': {
+            color: theme.palette.type === 'light' ? color.black : color.white,
+            padding: 16,
+            borderRadius: 4,
+            transition: 'all .2s ease-in-out',
+            textDecoration: 'none',
+
+            '&:hover': {
+                background: theme.palette.type === 'light' ? color.g100 : color.g900
+            },
+
+            '& svg': {
+                position: 'relative',
+                top: 6,
+                left: 8
+            }
+        }
+    }
 }));
 
 const Shadow = () => {
@@ -66,10 +120,12 @@ const Shadow = () => {
     const jsonCodeString = JSON.stringify(jsonShadow, null, 1);
     const scssCodeString = `
 $shadow-1: 1px 1px 2px rgba(0, 0, 0, 0.25);
-$shadow-2: 2px 2px 3px rgba(0, 0, 0, 0.25);`;
+$shadow-2: 2px 2px 3px rgba(0, 0, 0, 0.25);
+$shadow-3: 0px 8px 10px rgba(0, 0, 0, 0.20000000298023224);`;
     const cssCodeString = `
 --shadow-1: 1px 1px 2px rgba(0, 0, 0, 0.25);
---shadow-2: 2px 2px 3px rgba(0, 0, 0, 0.25);`;
+--shadow-2: 2px 2px 3px rgba(0, 0, 0, 0.25);
+--shadow-3: 0px 8px 10px rgba(0, 0, 0, 0.20000000298023224);`;
 
     const [value, setValue] = React.useState(0);
 
@@ -78,11 +134,14 @@ $shadow-2: 2px 2px 3px rgba(0, 0, 0, 0.25);`;
     }
 
     return (
-        <main className={custom.content}>
+        <Box className={`Content-inner ${custom.content}`} boxShadow={16}>
             <ScrollToTopController />
-            <div className={custom.toolbar} />
-            <div className='content'>
-                <h2>Shadow</h2>
+            <div className='inner-content'>
+                <Typography variant="h1">Design Tokens</Typography>
+                <Typography variant="h3">Shadows</Typography>
+                <Box mt={7} mb={7}>
+                    <Divider className={custom.divider} />
+                </Box>
                 <Paper className={custom.tabs}>
                     <Tabs
                         value={value}
@@ -162,8 +221,24 @@ ${jsonCodeString}
                         ))
                     }
                 </Grid>
+                <div className="Content__wrapper">
+                    <div className="Content__section">
+                        <Box className={custom.prev}>
+                            <Typography variant="body2">
+                                <Link to="/tokens/line-height"><ArrowBackIosIcon />Design Tokens: Line Height</Link>
+                            </Typography>
+                        </Box>
+                    </div>
+                    <div className="Content__section">
+                        <Box className={custom.next}>
+                            <Typography variant="body2">
+                                <Link to="/tokens/spacing">Design Tokens: Spacing<ArrowForwardIosIcon /></Link>
+                            </Typography>
+                        </Box>
+                    </div>
+                </div>
             </div>
-        </main>
+        </Box>
     );
 }
 

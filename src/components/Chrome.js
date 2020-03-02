@@ -2,21 +2,22 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import logo from '../assets/img/logo.blocks.svg';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+import {
+  AppBar,
+  Divider,
+  Drawer,
+  Hidden,
+  IconButton,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Tooltip,
+  Typography,
+  Slide,
+  useScrollTrigger
+} from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import Tooltip from '@material-ui/core/Tooltip';
-import Slide from '@material-ui/core/Slide';
-import color from '@edma/design-tokens/js/color';
-import fontSize from '@edma/design-tokens/js/fontSize';
+import { color, fontSize } from '@edma/design-tokens/';
 import { ReactComponent as Lightbulb } from '@edma/design-tokens/img/lightbulbIcon.svg';
 import { ReactComponent as LightbulbOutline } from '@edma/design-tokens/img/lightbulbOutlineIcon.svg';
 import Navigation from '../components/Navigation';
@@ -29,7 +30,6 @@ const navWidth = 240,
     background: theme.secondary,
   },
   appBar: {
-    //background: `linear-gradient(90deg, ${color.b300}, ${color.p400})`,
     background: theme.palette.type === 'light' ? color.white : color.g700,
     color: theme.palette.type === 'light' ? color.g800 : color.g100,
     marginLeft: navWidth,

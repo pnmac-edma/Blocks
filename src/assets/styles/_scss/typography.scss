@@ -1,0 +1,62 @@
+.primary-headline-example {
+    .MuiTypography-h1 {
+        font-family: 'Gilroy';
+        font-weight: bold;
+
+        &:after {
+            display: none;
+        }
+    }
+
+    .MuiTypography-h3 {
+        font-family: 'Gilroy';
+    }
+}
+
+.alt-headline-example {
+    .MuiTypography-h1 {
+        font-family: 'Century Gothic';
+        font-weight: bold;
+
+        &:after {
+            display: none;
+        }
+    }
+
+    .MuiTypography-h3 {
+        font-family: 'Century Gothic';
+    }
+}
+
+.bodycopy-example {
+    .MuiTypography-h1 {
+        font-family: 'Open Sans';
+        font-weight: bold;
+
+        &:after {
+            display: none;
+        }
+    }
+
+    .MuiTypography-h3 {
+        font-family: 'Open Sans';
+    }
+}
+
+.weight-example {
+    .extra {
+        font-weight: 900;
+    }
+    .bold {
+        font-weight: 800;
+    }
+    .medium {
+        font-weight: 700;
+    }
+    .normal {
+        font-weight: 600;
+    }
+    .light {
+        font-weight: 500;
+    }
+}

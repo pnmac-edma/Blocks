@@ -1,0 +1,40 @@
+.blastoff--slow {
+  animation: blastoff 9s ease-in-out infinite;
+  transform-origin: 90% 100% 0;
+}
+
+.blastoff--med {
+  animation: blastoff 6s ease-in-out infinite;
+  transform-origin: 70% 100% 0;
+}
+
+.blastoff--fast {
+  animation: blastoff 3s ease-in-out infinite;
+  transform-origin: 40% 100% 0;
+}
+
+@keyframes blastoff {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.blob-icon {
+  animation: blob 1s linear infinite;
+  transform-origin: 50% 50% 0;
+}
+
+@keyframes blob {
+  0% {
+    transform: skew(0,0);
+  }
+  50% {
+    transform: skew(-10deg, 10deg);
+  }
+  100% {
+    transform: skew(0,0);
+  }
+}

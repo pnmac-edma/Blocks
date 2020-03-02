@@ -1,0 +1,595 @@
+
+.treetop__day--slow {
+  animation: daytrees 6s ease-in-out infinite;
+  transform-origin: 50% 100% 0;
+}
+
+.treetop__day--med {
+  animation: daytrees 4s linear infinite;
+  transform-origin: 50% 100% 0;
+}
+
+.treetop__day--fast {
+  animation: daytrees 2s linear infinite;
+  transform-origin: 50% 100% 0;
+}
+
+.treetop__night--slow {
+  animation: nighttrees 6s ease-in-out infinite;
+  transform-origin: 50% 100% 0;
+}
+
+.treetop__night--med {
+  animation: nighttrees 4s linear infinite;
+  transform-origin: 50% 100% 0;
+}
+
+.treetop__night--fast {
+  animation: nighttrees 2s linear infinite;
+  transform-origin: 50% 100% 0;
+}
+
+.star--slow {
+  animation: stars 6s ease-in-out infinite;
+}
+
+.star--med {
+  animation: stars 4s ease-in-out infinite;
+}
+
+.star--fast {
+  animation: stars 2s ease-in-out infinite;
+}
+
+.lights-on--flicker {
+  animation: lightson-flicker 1.5s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 500ms;
+}
+
+.is-transitioning {
+  .stars.exiting {
+    opacity: 0;
+  }
+
+  .thesun.exiting,
+  .thestars.exiting {
+    opacity: 1;
+    animation: goodbye 1s ease-in-out;
+    animation-fill-mode: forwards;
+    transform-origin: 50% 100% 0;
+  }
+
+  .stars.incoming {
+    animation: thestars 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .stars.exiting {
+    opacity: 1;
+    animation: thestarsbye 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .lights-on--quick {
+    animation: lightson .3s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .lights-on__highlight--quick {
+    animation: lightson-highlight .3s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .lights-off--quick {
+    animation: lightsoff .3s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .lights-off__highlight--quick {
+    animation: lightsoff-highlight .3s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .lights-off--slow {
+    animation: lightsoff 0.8s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .lights-off__highlight--slow {
+    animation: lightsoff-highlight 0.8s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade1 {
+    animation: fade1 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade1--reverse {
+    animation: fade1 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade2 {
+    animation: fade2 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade2--reverse {
+    animation: fade2 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade3 {
+    animation: fade3 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade3--reverse {
+    animation: fade3 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade4 {
+    animation: fade4 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade4--reverse {
+    animation: fade4 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade5 {
+    animation: fade5 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade5--reverse {
+    animation: fade5 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade6 {
+    animation: fade6 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade6--reverse {
+    animation: fade6 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade7 {
+    animation: fade7 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade7--reverse {
+    animation: fade7 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade8 {
+    animation: fade8 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade8--reverse {
+    animation: fade8 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade9 {
+    animation: fade9 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade9--reverse {
+    animation: fade9 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade10 {
+    animation: fade10 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade10--reverse {
+    animation: fade10 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade11 {
+    animation: fade11 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade11--reverse {
+    animation: fade11 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade12 {
+    animation: fade12 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade12--reverse {
+    animation: fade12 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade13 {
+    animation: fade13 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade13--reverse {
+    animation: fade13 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade14 {
+    animation: fade14 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade14--reverse {
+    animation: fade14 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .fade15 {
+    animation: fade15 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .fade15--reverse {
+    animation: fade15 1s ease-in-out reverse;
+    animation-fill-mode: forwards;
+  }
+
+  .moon-entering {
+    animation: moon 1s ease-out;
+    animation-fill-mode: forwards;
+  }
+
+  .moon-exiting {
+    opacity: 1;
+    animation: moonbye 1s linear;
+    animation-fill-mode: forwards;
+  }
+
+  .sun-entering {
+    animation: moon 1s ease-out;
+    animation-fill-mode: forwards;
+  }
+
+  .sun-exiting {
+    opacity: 1;
+    animation: moonbye 1s linear;
+    animation-fill-mode: forwards;
+  }
+
+  .hidden {
+    opacity: 0;
+  }
+
+  .incoming {
+    z-index: 99;
+  }
+}
+
+.moon-exiting,
+.sun-exiting,
+.stars.exiting,
+.thestars.exiting,
+.thesun.exiting {
+  opacity: 0;
+}
+
+.fade5,
+.fade6 {
+  fill: #ED852F;
+}
+
+.fade3--reverse {
+  stroke: #D85335;
+}
+
+.fade6 {
+  stroke: #ED852F;
+}
+
+.fade2--reverse {
+  fill: #D85335;
+}
+
+.fade8--reverse {
+  fill: #F22F50;
+}
+
+@keyframes daytrees {
+  0%,
+  20% {
+    transform: rotate(0deg) skewY(0deg) skewX(0deg);
+  }
+  50% {
+    transform: rotate(0deg) skewY(0deg) skewX(-2deg);
+  }
+}
+
+@keyframes nighttrees {
+  0%,
+  20% {
+    transform: rotate(0deg) skewY(0deg) skewX(0deg);
+  }
+  50% {
+    transform: rotate(0deg) skewY(0deg) skewX(-1deg);
+  }
+}
+
+@keyframes stars {
+  0% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes goodbye {
+  0% {
+    transform: scale(2);
+  }
+  100% {
+    transform: rotate(180deg) scale(2);
+  }
+}
+
+@keyframes thestars {
+  0% {
+    transform: translateX(-400px) translateY(-100px) rotate(-15deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes thestarsbye {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(800px) translateY(-200px) rotate(65deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lightson {
+  0% {
+    fill: #F1C400;
+  }
+  1%,
+  100% {
+    fill: #89C6CC;
+  }
+}
+
+@keyframes lightson-highlight {
+  0% {
+    fill: #FAEAAE;
+  }
+  1%,
+  100% {
+    fill: #D0F6FB;
+  }
+}
+
+@keyframes lightson-flicker {
+  66%,
+  100% {
+    fill: #F1C400;
+  }
+  65% {
+    fill: #89C6CC;
+  }
+  57% {
+    fill: #F1C400;
+  }
+  52% {
+    fill: #89C6CC;
+  }
+  51% {
+    fill: #F1C400;
+  }
+  0%,
+  41% {
+    fill: #89C6CC;
+  }
+}
+
+@keyframes lightsoff {
+  0% {
+    fill: #89C6CC;
+  }
+  1%,
+  100% {
+    fill: #F1C400;
+  }
+}
+
+@keyframes lightsoff-highlight {
+  0% {
+    fill: #D0F6FB;
+  }
+  1%,
+  100% {
+    fill: #FAEAAE;
+  }
+}
+
+@keyframes fade1 {
+  0% {
+    fill: #F36800;
+  }
+  100% {
+    fill: #045189;
+  }
+}
+
+@keyframes fade2 {
+  0% {
+    fill: #D85335;
+  }
+  100% {
+    fill: #0F4686;
+  }
+}
+
+@keyframes fade3 {
+  0% {
+    stroke: #D85335;
+  }
+  100% {
+    stroke: #0F4686;
+  }
+}
+
+@keyframes fade4 {
+  0% {
+    fill: #0071A9;
+  }
+  100% {
+    fill: #FF9839;
+  }
+}
+
+@keyframes fade5 {
+  0% {
+    fill: #0B5F88;
+  }
+  100% {
+    fill: #ED852F;
+  }
+}
+
+@keyframes fade6 {
+  0% {
+    stroke: #0B5F88;
+  }
+  100% {
+    stroke: #ED852F;
+  }
+}
+
+@keyframes fade7 {
+  0% {
+    fill: #DE2B25;
+  }
+  100% {
+    fill: #834A85;
+  }
+}
+
+@keyframes fade8 {
+  0% {
+    fill: #F22F50;
+  }
+  100% {
+    fill: #96559C;
+  }
+}
+
+@keyframes fade9 {
+  0% {
+    fill: #C91B38;
+  }
+  100% {
+    fill: #60457A;
+  }
+}
+
+@keyframes fade10 {
+  0% {
+    fill: #664867;
+  }
+  100% {
+    fill: #FF4B53;
+  }
+}
+
+@keyframes fade11 {
+  0% {
+    fill: #7E517F;
+  }
+  100% {
+    fill: #EA3F54;
+  }
+}
+
+@keyframes fade12 {
+  0% {
+    fill: #1FBE6A;
+  }
+  100% {
+    fill: #117741;
+  }
+}
+
+@keyframes fade13 {
+  0% {
+    fill: #2CDF78;
+  }
+  100% {
+    fill: #1C914E;
+  }
+}
+
+@keyframes fade14 {
+  0% {
+    fill: #2BCCA0;
+  }
+  100% {
+    fill: #197159;
+  }
+}
+
+@keyframes fade15 {
+  0% {
+    fill: #21AA7F;
+  }
+  100% {
+    fill: #0C5941;
+  }
+}
+
+@keyframes moon {
+  0%,
+  30% {
+    transform: translateX(-400px) translateY(400px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes moonbye {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    transform: translateX(800px) translateY(400px);
+  }
+}

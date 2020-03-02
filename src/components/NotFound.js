@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import ScrollToTopController from './ScrollToTopController';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
@@ -16,6 +17,7 @@ export default function NotFound() {
 
     return (
         <main className={custom.content}>
+            <ScrollToTopController />
             <div className={custom.toolbar} />
 
             <div  className="content" >

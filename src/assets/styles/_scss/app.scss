@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: $font-body;
+  font-family: '$font-body';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -15,10 +15,154 @@ code {
   text-align: center;
 }
 
+.Main {
+  position: absolute;
+  margin: 0 160px 64px;
+  left: 0;
+  right: 0;
+}
+
+.Main__header {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  height: 324px;
+  display: flex;
+}
+
+.Main__left-header {
+  width: 360px;
+  text-align: left;
+  top: 100px;
+  position: relative;
+}
+
+.Main__right-header {
+  margin-right: -3rem;
+  z-index: -1;
+}
+
+.Content,
+.Content-inner {
+  border-radius: $border-radius-1;
+  max-width: 1120px;
+  min-width: 900px;
+  flex-grow: 1;
+  text-align: left;
+  margin: 0 auto;
+  padding: 64px;
+  overflow: hidden;
+}
+
+.Content-inner {
+  margin: 80px 40px 40px 320px;
+}
+
+.Content__wrapper {
+  position: relative;
+}
+
+.Content__section,
+.Content__section--75,
+.Content__section--25,
+.Content__section--60,
+.Content__section--40 {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.Content__section--75 {
+  width: 75%;
+}
+
+.Content__section--25 {
+  width: 25%;
+}
+
+.Content__section--60 {
+  width: 65%;
+  margin-right: 4rem;
+}
+
+.Content__section--40 {
+  width: 20%;
+}
+
+.Content__section--shadow,
+.Content__section--other,
+.Content__section--outlined,
+.Content__section--tracking,
+.Content__section--lockups,
+.Content__section--busybg,
+.Content__section--rotated,
+.Content__section--squeezed {
+  background: $color-white;
+  padding: 3rem 3rem 0 3rem;
+  height: 200px;
+  width: 47%;
+  margin: 0 0.3rem 0.6rem;
+  border: 1px solid $color-g-200;
+  border-radius: 4px;
+  background: $color-white;
+  color: $color-black;
+  position: relative;
+
+  &:after {
+    content: '';
+    width: 80%;
+    height: 4px;
+    background: $color-r-600;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    border-radius: 4px;
+    transform: rotate(45deg);
+  }
+}
+
+.Content__section--other .blue,
+.Content__section--other .blue path, {
+  fill: $color-c-500;
+}
+
+.Content__section--outlined path {
+  stroke: $color-black;
+  stroke-width: 2px;
+}
+
+.Content__section--rotated svg {
+  transform: rotate(15deg);
+}
+
+.Content__section--squeezed svg {
+  width: 230px;
+  height: 90px;
+}
+
+.Content__bottom-section {
+  width: calc(25% - 32px);
+  display: inline-block;
+  vertical-align: top;
+  margin: 64px 32px 64px 0;
+}
+
+.Content__pg {
+  line-height: 170%;
+  display: block;
+  margin-top: 1rem !important;
+  font-family: "Open Sans" !important;
+}
+
 .content {
   text-align: left;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.inner-content {
+  text-align: left;
+  padding: 4rem;
 }
 
 .dialog-enter {
@@ -59,4 +203,109 @@ code {
   position: absolute;
   top: 0.5rem;
   left: 3rem;
+}
+
+.MuiTypography-h1:after,
+.MuiTypography-h2:after {
+  content: '';
+}
+
+.MuiListItem-button {
+  border-radius: 4px !important;
+}
+
+.Content__list {
+  height: 200px;
+  top: 1rem;
+  position: relative;
+  font-size: $font-size-body-1;
+
+  .MuiListItem-root {
+    padding: 16px 0;
+    width: 50%;
+    display: inline-block;
+  }
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.Content__bottom-section svg .blob-icon {
+  padding: 0.5rem;
+}
+
+.Nav {
+  position: absolute !important;
+  width: 300px;
+  padding-top: 1rem !important;
+}
+
+.Nav-container {
+  margin: 0 auto;
+  max-width: 1500px;
+}
+
+.Brand__identity,
+.Brand__opportunity,
+.Brand__purpose {
+  position: relative;
+  text-align: center;
+
+  & .MuiSvgIcon-root {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: -30px;
+    left: 0;
+    border-top: 4px solid $color-y-400;
+    padding-top: 5px;
+  }
+}
+
+.Brand__identity {
+  top: 4px;
+  left: 0;
+  width: 145px;
+}
+
+.Brand__opportunity {
+  top: -16px;
+  left: 155px;
+  width: 165px;
+}
+
+.Brand__purpose {
+  top: -36px;
+  left: 330px;
+  width: 80px;
+}
+
+.Icons {
+  margin: 3rem 0;
+  overflow-y: hidden;
+}
+
+.Icons__grid {
+  height: 130px;
+  width: 6700px !important;
+  animation: banner 360s linear infinite;
+}
+
+.Icons__icon {
+  width: 100px;
+  margin-right: 90px;
+}
+
+@keyframes banner {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-6000px);
+  }
 }

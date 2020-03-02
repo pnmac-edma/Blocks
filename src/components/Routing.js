@@ -4,20 +4,29 @@ import { AnimatedSwitch } from 'react-router-transition';
 import { makeStyles } from '@material-ui/core/styles';
 
 import NotFound from './NotFound';
-import Chrome from './Chrome';
+import TopBar from './Chrome/TopBar';
 import Home from '../Home';
-import Principles from '../Principles';
-import Colors from '../components/tokens/Color';
-import BorderRadius from '../components/tokens/BorderRadius';
-import BorderSize from '../components/tokens/BorderSize';
-import Breakpoints from '../components/tokens/Breakpoints';
-import FontFamily from '../components/tokens/FontFamily';
-import FontSize from '../components/tokens/FontSize';
-import FontWeight from '../components/tokens/FontWeight';
-import LineHeight from '../components/tokens/LineHeight';
-import Shadow from '../components/tokens/Shadow';
-import Spacing from '../components/tokens/Spacing';
-import Zindex from '../components/tokens/Zindex';
+import Principles from '../components/Foundation/Principles';
+import Tokens from './Tokens';
+import Colors from './Tokens/Color';
+import BorderRadius from './Tokens/BorderRadius';
+import BorderSize from './Tokens/BorderSize';
+import Breakpoints from './Tokens/Breakpoints';
+import FontFamily from './Tokens/FontFamily';
+import FontSize from './Tokens/FontSize';
+import FontWeight from './Tokens/FontWeight';
+import LineHeight from './Tokens/LineHeight';
+import Shadow from './Tokens/Shadow';
+import Spacing from './Tokens/Spacing';
+import Zindex from './Tokens/Zindex';
+import Brand from '../components/Brand';
+import Ethics from '../components/Brand/Ethics';
+import Voice from '../components/Brand/Voice';
+import Identity from '../components/Brand/Identity';
+import Iconography from '../components/Brand/Iconography';
+import Photography from '../components/Brand/Photography';
+import Typography from '../components/Brand/Typography';
+import Navigation from '../components/Navigation';
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -25,14 +34,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Routing ({onToggle, version}) {
+export default function Routing ({onToggle, transitioning, version}) {
   const custom = useStyles();
   const [headline, setHeadline] = useState('null');
   const [index, setIndex] = useState('null');
 
   return (
     <Router>
-      <Chrome onToggle={onToggle} version={version} headline={headline} index={index} />
+      <TopBar onToggle={onToggle} version={version} headline={headline} index={index} />
       <AnimatedSwitch
         atEnter={{ opacity: 0 }}
         atLeave={{ opacity: 0 }}
@@ -45,128 +54,240 @@ export default function Routing ({onToggle, version}) {
           render={(props) =>
             <div className={custom.content}>
               {setHeadline('Blocks Design System')}
-              {setIndex(0)}
-              <Home {...props} />
+              <Home {...props} onToggle={onToggle} transitioning={transitioning} />
             </div>
           }
         />
         <Route
-          path="/principles/"
+          path="/foundation/design-principles"
           render={(props) =>
             <div className={custom.content}>
               {setHeadline('Core Design Principles')}
-              {setIndex(1)}
-              <Principles {...props} />
+              <div className="Nav-container">
+                <Navigation index={1} />
+                <Principles {...props} />
+              </div>
             </div>
           }
         />
         <Route
-          path='/tokens/border-radius/'
+          path="/brand/getting-started"
+          render={(props) =>
+            <div className={custom.content}>
+              <div className="Nav-container">
+                <Navigation index={4} />
+                <Brand {...props} />
+              </div>
+            </div>
+          }
+        />
+        <Route
+          path="/brand/core-values"
+          render={(props) =>
+            <div className={custom.content}>
+              <div className="Nav-container">
+                <Navigation index={5} />
+                <Ethics {...props} />
+              </div>
+            </div>
+          }
+        />
+        <Route
+          path="/brand/voice-&-tone"
+          render={(props) =>
+            <div className={custom.content}>
+              <div className="Nav-container">
+                <Navigation index={6} />
+                <Voice {...props} />
+              </div>
+            </div>
+          }
+        />
+        <Route
+          path="/brand/identity"
+          render={(props) =>
+            <div className={custom.content}>
+              <div className="Nav-container">
+                <Navigation index={7} />
+                <Identity {...props} />
+              </div>
+            </div>
+          }
+        />
+        <Route
+          path="/brand/iconography"
+          render={(props) =>
+            <div className={custom.content}>
+              <div className="Nav-container">
+                <Navigation index={8} />
+                <Iconography {...props} />
+              </div>
+            </div>
+          }
+        />
+        <Route
+          path="/brand/photography"
+          render={(props) =>
+            <div className={custom.content}>
+              <div className="Nav-container">
+                <Navigation index={9} />
+                <Photography {...props} />
+              </div>
+            </div>
+          }
+        />
+        <Route
+          path="/brand/typography"
+          render={(props) =>
+            <div className={custom.content}>
+              <div className="Nav-container">
+                <Navigation index={10} />
+                <Typography {...props} />
+              </div>
+            </div>
+          }
+        />
+        <Route
+          path='/tokens/getting-started'
+          render={(props) =>
+            <div className={custom.content}>
+              {setHeadline('Design Tokens: Getting Started')}
+              <div className="Nav-container">
+                <Navigation index={11} />
+                <Tokens {...props} />
+              </div>
+            </div>
+          }
+        />
+        <Route
+          path='/tokens/border-radius'
           render={(props) =>
             <div className={custom.content}>
               {setHeadline('Design Tokens: Border Radius')}
-              {setIndex(4)}
-              <BorderRadius {...props} />
+              <div className="Nav-container">
+                <Navigation index={12} />
+                <BorderRadius {...props} />
+              </div>
             </div>
           }
         />
         <Route
-          path='/tokens/border-size/'
+          path='/tokens/border-size'
           render={(props) =>
             <div className={custom.content}>
               {setHeadline('Design Tokens: Border Size')}
-              {setIndex(5)}
-              <BorderSize {...props} />
+              <div className="Nav-container">
+                <Navigation index={13} />
+                <BorderSize {...props} />
+              </div>
             </div>
           }
         />
         <Route
-          path='/tokens/breakpoint/'
+          path='/tokens/breakpoint'
           render={(props) =>
             <div className={custom.content}>
               {setHeadline('Design Tokens: Breakpoints')}
-              {setIndex(6)}
-              <Breakpoints {...props} />
+              <div className="Nav-container">
+                <Navigation index={14} />
+                <Breakpoints {...props} />
+              </div>
             </div>
           }
         />
         <Route
-          path='/tokens/color/'
+          path='/tokens/color'
           render={(props) =>
             <div className={custom.content}>
               {setHeadline('Design Tokens: Color')}
-              {setIndex(7)}
-              <Colors {...props} />
+              <div className="Nav-container">
+                <Navigation index={15} />
+                <Colors {...props} />
+              </div>
             </div>
           }
         />
         <Route
-          path='/tokens/font-family/'
+          path='/tokens/font-family'
           render={(props) =>
             <div className={custom.content}>
               {setHeadline('Design Tokens: Font Family')}
-              {setIndex(8)}
-              <FontFamily {...props} />
+              <div className="Nav-container">
+                <Navigation index={16} />
+                <FontFamily {...props} />
+              </div>
             </div>
           }
         />
         <Route
-          path='/tokens/font-size/'
+          path='/tokens/font-size'
           render={(props) =>
             <div className={custom.content}>
               {setHeadline('Design Tokens: Font Size')}
-              {setIndex(9)}
-              <FontSize {...props} />
+              <div className="Nav-container">
+                <Navigation index={17} />
+                <FontSize {...props} />
+              </div>
             </div>
           }
         />
         <Route
-          path='/tokens/font-weight/'
+          path='/tokens/font-weight'
           render={(props) =>
             <div className={custom.content}>
               {setHeadline('Design Tokens: Font Weight')}
-              {setIndex(10)}
-              <FontWeight {...props} />
+              <div className="Nav-container">
+                <Navigation index={18} />
+                <FontWeight {...props} />
+              </div>
             </div>
           }
         />
         <Route
-          path='/tokens/line-height/'
+          path='/tokens/line-height'
           render={(props) =>
             <div className={custom.content}>
               {setHeadline('Design Tokens: Line Height')}
-              {setIndex(11)}
-              <LineHeight {...props} />
+              <div className="Nav-container">
+                <Navigation index={19} />
+                <LineHeight {...props} />
+              </div>
             </div>
           }
         />
         <Route
-          path='/tokens/shadow/'
+          path='/tokens/shadow'
           render={(props) =>
             <div className={custom.content}>
               {setHeadline('Design Tokens: Shadow')}
-              {setIndex(12)}
-              <Shadow {...props} />
+              <div className="Nav-container">
+                <Navigation index={20} />
+                <Shadow {...props} />
+              </div>
             </div>
           }
         />
         <Route
-          path='/tokens/spacing/'
+          path='/tokens/spacing'
           render={(props) =>
             <div className={custom.content}>
               {setHeadline('Design Tokens: Spacing')}
-              {setIndex(13)}
-              <Spacing {...props} />
+              <div className="Nav-container">
+                <Navigation index={21} />
+                <Spacing {...props} />
+              </div>
             </div>
           }
         />
         <Route
-          path='/tokens/z-index/'
+          path='/tokens/z-index'
           render={(props) =>
             <div className={custom.content}>
               {setHeadline('Design Tokens: Z-index')}
-              {setIndex(14)}
-              <Zindex {...props} />
+              <div className="Nav-container">
+                <Navigation index={22} />
+                <Zindex {...props} />
+              </div>
             </div>
           }
         />

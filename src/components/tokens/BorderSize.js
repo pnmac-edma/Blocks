@@ -1,13 +1,19 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import color from '@edma/design-tokens/js/color';
-import borderSize from '@edma/design-tokens/js/borderSize';
+import {
+    Box,
+    Divider,
+    Grid,
+    Paper,
+    Tab,
+    Tabs,
+    Typography
+} from '@material-ui/core';
+import { Link } from "react-router-dom";
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { color, borderSize, font } from '@edma/design-tokens/';
 import jsonBorderSize from '@edma/design-tokens/json/borderSize';
-import font from '@edma/design-tokens/js/font';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokaiSublime } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import ScrollToTopController from '../ScrollToTopController';
@@ -19,9 +25,17 @@ const useStyles = makeStyles (theme => ({
     tabs: {
         display: 'inline-block',
         overflow: 'hidden',
+        marginTop: '1rem',
+        background: theme.palette.type === 'light' ? color.g100 : color.g700
     },
     tab: {
-        minWidth: 75,
+        minWidth: 75
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(1),
+        background: theme.palette.type === 'light' ? color.white : color.black,
+        textAlign: 'left'
     },
     flexCards: {
         display: 'inline-flex',
@@ -29,13 +43,6 @@ const useStyles = makeStyles (theme => ({
         flexWrap: 'no-wrap',
         maxWidth: '100%',
         flexBasis: '50%',
-    },
-    toolbar: theme.mixins.toolbar,
-    content: {
-        margin: 40,
-        flexGrow: 1,
-        padding: theme.spacing(2),
-        textAlign: 'left',
     },
     codeBlock: {
         padding: '40px !important',
@@ -53,6 +60,54 @@ const useStyles = makeStyles (theme => ({
     },
     mono: {
         fontFamily: font.mono,
+    },
+    prev: {
+        position: 'relative',
+        marginTop: '2rem',
+        width: '100%',
+        textAlign: 'left',
+
+        '& a': {
+            color: theme.palette.type === 'light' ? color.black : color.white,
+            padding: 16,
+            borderRadius: 4,
+            transition: 'all .2s ease-in-out',
+            textDecoration: 'none',
+
+            '&:hover': {
+                background: theme.palette.type === 'light' ? color.g100 : color.g900
+            },
+
+            '& svg': {
+                position: 'relative',
+                top: 6,
+                right: 4
+            }
+        }
+    },
+    next: {
+        position: 'relative',
+        marginTop: '2rem',
+        width: '100%',
+        textAlign: 'right',
+
+        '& a': {
+            color: theme.palette.type === 'light' ? color.black : color.white,
+            padding: 16,
+            borderRadius: 4,
+            transition: 'all .2s ease-in-out',
+            textDecoration: 'none',
+
+            '&:hover': {
+                background: theme.palette.type === 'light' ? color.g100 : color.g900
+            },
+
+            '& svg': {
+                position: 'relative',
+                top: 6,
+                left: 8
+            }
+        }
     }
 }));
 
@@ -74,11 +129,14 @@ $border-size-2: 2px;`;
     }
 
     return (
-        <main className={custom.content}>
+        <Box className={`Content-inner ${custom.content}`} boxShadow={16}>
             <ScrollToTopController />
-            <div className={custom.toolbar} />
-            <div className='content'>
-                <h2>Border Size</h2>
+            <div className='inner-content'>
+                <Typography variant="h1">Design Tokens</Typography>
+                <Typography variant="h3">Border Size</Typography>
+                <Box mt={7} mb={7}>
+                    <Divider className={custom.divider} />
+                </Box>
                 <Paper className={custom.tabs}>
                     <Tabs
                         value={value}
@@ -158,8 +216,24 @@ ${jsonCodeString}
                         ))
                     }
                 </Grid>
+                <div className="Content__wrapper">
+                    <div className="Content__section">
+                        <Box className={custom.prev}>
+                            <Typography variant="body2">
+                                <Link to="/tokens/border-radius"><ArrowBackIosIcon />Design Tokens: Border Radius</Link>
+                            </Typography>
+                        </Box>
+                    </div>
+                    <div className="Content__section">
+                        <Box className={custom.next}>
+                            <Typography variant="body2">
+                                <Link to="/tokens/breakpoint">Design Tokens: Breakpoints<ArrowForwardIosIcon /></Link>
+                            </Typography>
+                        </Box>
+                    </div>
+                </div>
             </div>
-        </main>
+        </Box>
     );
 }
 
