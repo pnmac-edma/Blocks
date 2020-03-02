@@ -110,14 +110,39 @@ const Tokens = () => {
                         Design Tokens are simple to include in any project. All of our design tokens can be accessed <a href="https://www.npmjs.com/package/@edma/design-tokens" target="_blank" rel="noopener noreferrer" className={custom.anchor}>via NPM</a>.
                     </Typography>
                 </Box>
-                <Box mb={3}>
+                <Box mb={7}>
                     <Typography variant="body1">
                         On the command line, run <code className={custom.code}>npm i @edma/design-tokens --save-dev</code> to install the tokens package into your project as a dev dependency. You can then import tokens in the language that you need for your project.
                     </Typography>
                 </Box>
+                <Box mb={3}>
+                    <Typography variant="h3">
+                        Javascript
+                    </Typography>
+                </Box>
+                <Box mb={3}>
+                    <Typography variant="body1">
+                        Design tokens can be imported modularly using JavaScript. The example below imports color, font, font size, and font weight tokens using a single import. Tokens can optionally be imported individually as well. Specific import commands can be found on the indivual token pages throughout this section.
+                    </Typography>
+                </Box>
                 <Box mb={7}>
-                    <Typography variant="body1" className={custom.callout}>
-                        Note: specific import commands can be found on the individual token pages throughout this section.
+                    <Typography variant="body0">
+                        <code className={custom.code}>import &#123; color, font, fontSize, weight &#125; from '@edma/design-tokens/';</code>
+                    </Typography>
+                </Box>
+                <Box mb={3}>
+                    <Typography variant="h3">
+                        Sass (SCSS)
+                    </Typography>
+                </Box>
+                <Box mb={3}>
+                    <Typography variant="body1">
+                        All SCSS design tokens live in a single variables document, which can be imported into your SCSS stylesheets using the command below.
+                    </Typography>
+                </Box>
+                <Box mb={7}>
+                    <Typography variant="body0">
+                        <code className={custom.code}>@import '~@edma/design-tokens/_scss/variables';</code>
                     </Typography>
                 </Box>
                 <Box mb={3}>
