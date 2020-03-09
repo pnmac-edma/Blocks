@@ -122,12 +122,17 @@ const Tokens = () => {
                 </Box>
                 <Box mb={3}>
                     <Typography variant="body1">
-                        Design tokens can be imported modularly using JavaScript. The example below imports color, font, font size, and font weight tokens using a single import. Tokens can optionally be imported individually as well. Specific import commands can be found on the indivual token pages throughout this section.
+                        Design tokens can be imported modularly using JavaScript. The example below imports color, font, font size, and font weight tokens using a single import. Tokens can optionally be imported individually as well.
+                    </Typography>
+                </Box>
+                <Box mb={3}>
+                    <Typography variant="body0">
+                        <code className={custom.code}>import &#123; color, font, fontSize, weight &#125; from '@edma/design-tokens/';</code>
                     </Typography>
                 </Box>
                 <Box mb={7}>
-                    <Typography variant="body0">
-                        <code className={custom.code}>import &#123; color, font, fontSize, weight &#125; from '@edma/design-tokens/';</code>
+                    <Typography variant="body1" className={custom.callout}>
+                        Note: specific import commands can be found on the individual token pages throughout this section.
                     </Typography>
                 </Box>
                 <Box mb={3}>
