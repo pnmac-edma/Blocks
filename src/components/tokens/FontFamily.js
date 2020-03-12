@@ -163,6 +163,8 @@ $font-mono: "Roboto Mono", monospace;`;
                 >
 {value === 0 ? `
 //Import
+import { font } from '@edma/design-tokens';
+//or
 import font from '@edma/design-tokens/js/font';
 
 //ES6 font family module

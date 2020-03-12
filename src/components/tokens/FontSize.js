@@ -171,6 +171,8 @@ $font-size-body-2: 1.25rem; /* 20px */`;
                 >
 {value === 0 ? `
 //Import
+import { fontSize } from '@edma/design-tokens';
+//or
 import fontSize from '@edma/design-tokens/js/fontSize';
 
 //ES6 font size module

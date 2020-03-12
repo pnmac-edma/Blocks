@@ -163,6 +163,8 @@ $breakpoint-3: 1200px;`;
                 >
 {value === 0 ? `
 //Import
+import { breakpoint } from '@edma/design-tokens';
+//or
 import breakpoint from '@edma/design-tokens/js/breakpoint';
 
 //ES6 breakpoints module

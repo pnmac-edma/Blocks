@@ -163,6 +163,8 @@ $border-radius-2: 10px;
                 >
 {value === 0 ? `
 //Import
+import { borderRadius } from '@edma/design-tokens';
+//or
 import borderRadius from '@edma/design-tokens/js/borderRadius';
 
 //ES6 border radius module

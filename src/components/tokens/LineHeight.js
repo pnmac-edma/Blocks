@@ -168,6 +168,8 @@ $line-height-4: 1.4506666564941406;`;
                 >
 {value === 0 ? `
 //Import
+import { lineHeight } from '@edma/design-tokens';
+//or
 import lineHeight from '@edma/design-tokens/js/lineHeight';
 
 //ES6 font weight module

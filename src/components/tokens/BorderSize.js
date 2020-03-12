@@ -161,6 +161,8 @@ $border-size-2: 2px;`;
                 >
 {value === 0 ? `
 //Import
+import { borderSize } from '@edma/design-tokens';
+//or
 import borderSize from '@edma/design-tokens/js/borderSize';
 
 //ES6 border size module

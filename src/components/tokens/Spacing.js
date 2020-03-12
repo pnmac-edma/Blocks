@@ -170,6 +170,8 @@ $spacing-5: 2em;`;
                 >
 {value === 0 ? `
 //Import
+import { spacing } from '@edma/design-tokens';
+//or
 import spacing from '@edma/design-tokens/js/spacing';
 
 //ES6 spacing module

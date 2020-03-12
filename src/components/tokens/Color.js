@@ -390,6 +390,8 @@ const cssCodeString = `
                 >
 {value === 0 ? `
 //Import
+import { color } from '@edma/design-tokens';
+//or
 import color from '@edma/design-tokens/js/color';
 
 //ES6 color module

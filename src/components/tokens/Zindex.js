@@ -169,6 +169,8 @@ $z-back: -1;`;
                 >
 {value === 0 ? `
 //Import
+import { z } from '@edma/design-tokens';
+//or
 import z from '@edma/design-tokens/js/z';
 
 //ES6 z-index module

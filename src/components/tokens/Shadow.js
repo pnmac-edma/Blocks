@@ -166,6 +166,8 @@ $shadow-3: 0px 8px 10px rgba(0, 0, 0, 0.20000000298023224);`;
                 >
 {value === 0 ? `
 //Import
+import { shadow } from '@edma/design-tokens';
+//or
 import shadow from '@edma/design-tokens/js/shadow';
 
 //ES6 shadow module

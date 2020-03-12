@@ -173,6 +173,8 @@ $weight-ultralight: 100;`;
                 >
 {value === 0 ? `
 //Import
+import { weight } from '@edma/design-tokens';
+//or
 import weight from '@edma/design-tokens/js/weight';
 
 //ES6 font weight module
