@@ -117,12 +117,12 @@ const Tokens = () => {
                 </Box>
                 <Box mb={3}>
                     <Typography variant="h3">
-                        Javascript
+                        JavaScript / TypeScript
                     </Typography>
                 </Box>
                 <Box mb={3}>
                     <Typography variant="body1">
-                        Design tokens can be imported modularly using JavaScript. The example below imports color, font, font size, and font weight tokens using a single import. Tokens can optionally be imported individually as well.
+                        Design tokens can be imported modularly using JavaScript. The same import also works with TypeScript <code>.tsx</code> files. The example below imports color, font, font size, and font weight tokens using a single import. Tokens can optionally be imported individually as well.
                     </Typography>
                 </Box>
                 <Box mb={3}>
