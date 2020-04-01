@@ -103,7 +103,7 @@ const Type = () => {
     const scssCodeString = `//SCSS
 @import '~@edma/design-tokens/_scss/variables';`;
     const jsCodeString = `//JS
-import font from '@edma/design-tokens/js/font';`;
+import { font } from '@edma/design-tokens/';`;
 
     const [value, setValue] = React.useState(0);
     const handleChange = (event, newValue) => {

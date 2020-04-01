@@ -99,7 +99,7 @@ const Voice = () => {
             <ScrollToTopController />
             <div className='inner-content'>
                 <Typography variant="h1">Brand</Typography>
-                <Typography variant="h2" className={custom.h2}>
+                <Typography variant="h3">
                     Voice &amp; Tone
                 </Typography>
                 <Box mt={7} mb={7}>
@@ -108,7 +108,7 @@ const Voice = () => {
                 <Grid container spacing={7}>
                     <Grid item xs>
                         <Box mb={3}>
-                            <Typography variant="h3">
+                            <Typography variant="h2" className={custom.h2}>
                                 The helpful neighbor
                             </Typography>
                         </Box>
