@@ -37,7 +37,7 @@ export default function App() {
         fontSize: fontSize['h1'],
         fontWeight: weight['bold'],
         '&:after': {
-          content: '',
+          content: '""',
           background: color.y400,
           position: 'relative',
           display: 'block',
@@ -59,7 +59,7 @@ export default function App() {
           marginBottom: 8
         },
         '&:after': {
-          content: '',
+          content: '""',
           background: color.y400,
           position: 'relative',
           display: 'block',
