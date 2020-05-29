@@ -102,17 +102,32 @@ const Tokens = () => {
                 </Box>
                 <Box mb={3}>
                     <Typography variant="h2">
-                        Including Design Tokens
+                        Installing Design Tokens
                     </Typography>
                 </Box>
                 <Box mb={3}>
                     <Typography variant="body1">
-                        Design Tokens are simple to include in any project. All of our design tokens can be accessed <a href="https://www.npmjs.com/package/@edma/design-tokens" target="_blank" rel="noopener noreferrer" className={custom.anchor}>via NPM</a>.
+                        Design Tokens are simple to install in any project. All of our design tokens can be accessed <a href="https://www.npmjs.com/package/@edma/design-tokens" target="_blank" rel="noopener noreferrer" className={custom.anchor}>via NPM</a>.
                     </Typography>
                 </Box>
                 <Box mb={7}>
                     <Typography variant="body1">
                         On the command line, run <code className={custom.code}>npm i @edma/design-tokens --save-dev</code> to install the tokens package into your project as a dev dependency. You can then import tokens in the language that you need for your project.
+                    </Typography>
+                </Box>
+                <Box mb={3}>
+                    <Typography variant="h2">
+                        Updating Design Tokens
+                    </Typography>
+                </Box>
+                <Box mb={7}>
+                    <Typography variant="body1">
+                        To check if new tokens area available, add the following command to the <code>package.json</code> file in your project.
+                    </Typography>
+                </Box>
+                <Box mb={3}>
+                    <Typography variant="h2">
+                        Including Design Tokens
                     </Typography>
                 </Box>
                 <Box mb={3}>
@@ -152,7 +167,7 @@ const Tokens = () => {
                 </Box>
                 <Box mb={3}>
                     <Typography variant="h2">
-                        Contribution Workflow
+                        Contributing To Design Tokens
                     </Typography>
                 </Box>
                 <Box mb={3}>

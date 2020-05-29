@@ -47,9 +47,8 @@ const Theme = {
       }
     },
     h3: {
-      fontFamily: font.heading,
+      fontFamily: font.body,
       fontWeight: 'normal',
-      color: color.g700,
       minWidth: 260,
       maxWidth: 600,
       fontSize: fontSize['h3'],
