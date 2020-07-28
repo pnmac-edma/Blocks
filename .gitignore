@@ -16,7 +16,6 @@ yarn.lock
 # misc
 .prettierrc
 .vscode
-.vscode
 .DS_Store
 .env.local
 .env.development.local
