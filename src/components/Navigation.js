@@ -156,7 +156,7 @@ export default function Navigation(props) {
       </ListItem>
       <Collapse in={componentsOpen} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          {['Getting Started', 'Modal', 'Storybook Component Library'].map((text, index) => (
+          {['Getting Started', 'Modal', 'Snackbar', 'Storybook Component Library'].map((text, index) => (
             <Link className={custom.anchor} key={index + 27} to={'/components/' + text.replace(/\s+/g, '-').toLowerCase() + '/'}>
               <ListItem button key={text} className={custom.nested} selected={selectedIndex === index + 27}>
                 <ListItemText primary={text} />

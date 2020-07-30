@@ -17,14 +17,12 @@ import { color, font } from '@edma/design-tokens/';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { xonokai } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import ScrollToTopController from '../../ScrollToTopController';
-import Modal from '../Presentational/Modal/Modal';
 import SnackBar from '../Presentational/Snackbar/Snackbar';
 import {
-  presentationalJsx,
-  basicModalJsx,
-  advancedModalJsx,
-  exampleBasicRender,
-  exampleAdvancedRender
+  successMessage,
+  errorMessage,
+  snackbarContainerJsx,
+  snackbarExampleJsx
 } from '../helpers/variable';
 
 const useStyles = makeStyles((theme) => ({
@@ -120,49 +118,46 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const CraftModal = () => {
+const CraftSnackbar = () => {
   const custom = useStyles();
   const [value, setValue] = useState(0);
-  const [openModalBasic, setIsOpenModalBasic] = useState(false);
-  const [openModalAdvanced, setIsOpenModalAdvanced] = useState(false);
-  const [notification, setNotification] = useState(false);
+  const [notification, setIsNotification] = useState(false);
+  const [notificationError, setNotificationError] = useState(false);
+  const [successApi, setIsSuccessApi] = useState(null);
 
-  const handleOpenModalBasic = () => setIsOpenModalBasic(true);
-  const handleOpenModalAdvanced = () => setIsOpenModalAdvanced(true);
-  const handleCloseModal = () => setIsOpenModalBasic(false);
-  const handleCloseModalAdvanced = () => setIsOpenModalAdvanced(false);
+  const handleOpenNotification = () => {
+    setTimeout(() => {
+      setIsSuccessApi(true);
+      setIsNotification(true);
+    }, 700);
+  };
+
+  const handleCloseNotification = () => setIsNotification(false);
+
+  const handleOpenErrorNotification = () => {
+    setTimeout(() => {
+      setIsSuccessApi(false);
+      setNotificationError(true);
+    }, 700);
+  };
+
+  const handleCloseErrorNotification = () => setNotificationError(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const handleOpenNotification = () => {
-    setTimeout(() => {
-      setNotification(true);
-    }, 500);
-  };
-  const handleCloseNotification = () => setNotification(false);
-
-  let finalJsx = presentationalJsx;
+  let finalJsx = snackbarContainerJsx;
   if (value === 1) {
-    finalJsx = basicModalJsx;
-  }
-  if (value === 2) {
-    finalJsx = advancedModalJsx;
+    finalJsx = snackbarExampleJsx;
   }
 
   return (
     <Box className={`Content-inner ${custom.content}`} boxShadow={16}>
-      <SnackBar
-        message={'You have Removed an example from something that was selected'}
-        notification={notification}
-        handleCloseNotification={handleCloseNotification}
-        isApiSucceeded={true}
-      />
       <ScrollToTopController />
       <div className="inner-content">
         <Typography variant="h1">Craft Re-usable Components</Typography>
-        <Typography variant="h3">Modal</Typography>
+        <Typography variant="h3">Snackbar</Typography>
         <Box mt={7} mb={7}>
           <Divider className={custom.divider} />
         </Box>
@@ -174,9 +169,8 @@ const CraftModal = () => {
             onChange={handleChange}
             aria-label="Toggle language"
           >
-            <Tab label="Modal Container JSX" className={custom.tab} />
-            <Tab label="Basic Example JSX" className={custom.tab} />
-            <Tab label="Advanced Example JSX" className={custom.tab} />
+            <Tab label="SnackBar Container JSX" className={custom.tab} />
+            <Tab label="Snackbar Example JSX" className={custom.tab} />
           </Tabs>
         </Paper>
         <SyntaxHighlighter
@@ -189,33 +183,27 @@ const CraftModal = () => {
         <Grid container spacing={2}>
           <Grid item xs={1} sm={1} md={1} lg={1} className={custom.flexCards}>
             <Paper className={custom.radius}>
-              <Button color="primary" onClick={handleOpenModalBasic}>
-                Open Basic Modal
+              <Button color="primary" onClick={handleOpenNotification}>
+                Open success snackbar
               </Button>
-              <Modal
-                modalTitle={'Basic Modal Title'}
-                render={exampleBasicRender}
-                openModal={openModalBasic}
-                handleModalToggle={handleCloseModal}
-                handleOpenNotification={() => {}}
-                handleRemoveSelected={() => {}}
-                footerButtonText={'Footer Button'}
+              <SnackBar
+                message={successMessage}
+                notification={notification}
+                handleCloseNotification={handleCloseNotification}
+                isApiSucceeded={successApi}
               />
             </Paper>
           </Grid>
           <Grid item xs={1} sm={1} md={1} lg={1} className={custom.flexCards}>
             <Paper className={custom.radius}>
-              <Button color="primary" onClick={handleOpenModalAdvanced}>
-                Open Advanced Modal
+              <Button color="primary" onClick={handleOpenErrorNotification}>
+                Open error snackbar
               </Button>
-              <Modal
-                modalTitle={'Advanced Modal Title'}
-                render={exampleAdvancedRender}
-                openModal={openModalAdvanced}
-                handleModalToggle={handleCloseModalAdvanced}
-                handleOpenNotification={handleOpenNotification}
-                handleRemoveSelected={handleOpenNotification}
-                footerButtonText={'Yes Remove Selected'}
+              <SnackBar
+                message={errorMessage}
+                notification={notificationError}
+                handleCloseNotification={handleCloseErrorNotification}
+                isApiSucceeded={successApi}
               />
             </Paper>
           </Grid>
@@ -224,9 +212,9 @@ const CraftModal = () => {
           <div className="Content__section">
             <Box className={custom.prev}>
               <Typography variant="body2">
-                <Link to="/components/getting-started">
+                <Link to="/components/modal">
                   <ArrowBackIosIcon />
-                  Components: Getting Started
+                  Components: Modal
                 </Link>
               </Typography>
             </Box>
@@ -234,8 +222,8 @@ const CraftModal = () => {
           <div className="Content__section">
             <Box className={custom.next}>
               <Typography variant="body2">
-                <Link to="/components/snackbar">
-                  Components: Snackbar
+                <Link to="/components/storybook-component-library">
+                  Components: Storybook Component Library
                   <ArrowForwardIosIcon />
                 </Link>
               </Typography>
@@ -247,4 +235,4 @@ const CraftModal = () => {
   );
 };
 
-export default CraftModal;
+export default CraftSnackbar;
