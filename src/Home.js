@@ -8,9 +8,7 @@ import {
   Typography
 } from '@material-ui/core';
 import { Link } from "react-router-dom";
-import borderRadius from '@edma/design-tokens/js/borderRadius';
-import color from '@edma/design-tokens/js/color';
-import fontSize from '@edma/design-tokens/js/fontSize';
+import { borderRadius, color, fontSize } from '@edma/design-tokens';
 import ScrollToTopController from './components/ScrollToTopController';
 import { ReactComponent as GettingStartedLight } from './assets/img/graphic.gettingstarted.light.svg';
 import { ReactComponent as GettingStartedDark } from './assets/img/graphic.gettingstarted.dark.svg';
@@ -157,7 +155,7 @@ export default function Home(props) {
               Find out how we make sure that our design is accessible, user focused, and intentional.
             </Typography>
             <Typography variant="body2" className="Content__pg">
-              <Link key='0' to='/content' className={custom.anchor}>View Core Principles</Link>
+              <Link key='0' to='/foundation/design-principles' className={custom.anchor}>View Core Principles</Link>
             </Typography>
           </div>
           <div className="Content__bottom-section">
@@ -181,7 +179,7 @@ export default function Home(props) {
               See how we put the pieces together to create meaningful product experiences.
             </Typography>
             <Typography variant="body2" className="Content__pg">
-            <Link key='0' to='/patterns' className={custom.anchor}>View Pattern Library</Link>
+            <a href="https://www.figma.com/file/4fq1g7wxoTYfdLFAoxco7x/Pattern-Library" target="_blank" rel="noopener noreferrer" className={custom.anchor}>View Pattern Library</a>
             </Typography>
           </div>
           <div className="Content__bottom-section">
@@ -224,22 +222,10 @@ export default function Home(props) {
             </Typography>
             <List className="Content__list">
               <ListItem>
-                <Link key='0' to='/kirby-api' className={custom.anchor}>Kirby GraphQL API</Link>
+                <a href="https://www.figma.com/file/hhRwCxtuZb27X3XFI03rqZ/Kirby-Patterns" target="_blank" rel="noopener noreferrer" className={custom.anchor}>Kirby UI Patterns</a>
               </ListItem>
               <ListItem>
-                <Link key='0' to='/kirby-ui' className={custom.anchor}>Kirby UI Kit</Link>
-              </ListItem>
-              <ListItem>
-                <Link key='0' to='/rubix-api' className={custom.anchor}>Rubix REST API</Link>
-              </ListItem>
-              <ListItem>
-                <Link key='0' to='/rubix-ui' className={custom.anchor}>Rubix UI Kit</Link>
-              </ListItem>
-              <ListItem>
-                <Link key='0' to='/rims-api' className={custom.anchor}>RIMS REST API</Link>
-              </ListItem>
-              <ListItem>
-                <Link key='0' to='/rims-ui' className={custom.anchor}>RIMS UI Kit</Link>
+              <a href="https://www.figma.com/file/WiqLs1gy8b0N2df9rPDCH4/Rims-Patterns" target="_blank" rel="noopener noreferrer" className={custom.anchor}>RIMS UI Patterns</a>
               </ListItem>
             </List>
           </div>
