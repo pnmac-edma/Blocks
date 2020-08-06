@@ -153,7 +153,7 @@ const Iconography = () => {
                 </Box>
                 <div className="Icons">
                     <Grid container spacing={3} className="Icons__grid">
-                        {icons.map(icon => <Grid item xs>{icon}</Grid>)}
+                        {icons.map((icon, index) => <Grid key={index} item xs>{icon}</Grid>)}
                     </Grid>
                 </div>
                 <Box mb={3}>

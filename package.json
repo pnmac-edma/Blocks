@@ -5,6 +5,7 @@
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
+    "@edma/craft-components": "^1.0.0",
     "@material-ui/core": "^4.0.1",
     "@material-ui/icons": "^4.0.1",
     "@svgr/webpack": "^4.3.3",
@@ -46,7 +47,7 @@
     ]
   },
   "devDependencies": {
-    "@edma/design-tokens": "^4.2.5",
+    "@edma/design-tokens": "^4.3.0",
     "react-selectize": "^3.0.1",
     "react-styleguidist": "^9.1.14"
   }
