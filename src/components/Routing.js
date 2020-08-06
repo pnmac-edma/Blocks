@@ -25,8 +25,8 @@ import Voice from '../components/Brand/Voice';
 import Identity from '../components/Brand/Identity';
 import Iconography from '../components/Brand/Iconography';
 import Photography from '../components/Brand/Photography';
-import KraftModal from './Reuseable-Components/Scenes/CraftModal';
-import KraftSnackbar from './Reuseable-Components/Scenes/CraftSnackbar';
+import CraftModal from '../components/Craft-Components/Modal/CraftModal';
+import CraftSnackbar from '../components/Craft-Components/SnackBar/CraftSnackbar';
 import Typography from '../components/Brand/Typography';
 import Navigation from '../components/Navigation';
 
@@ -308,7 +308,7 @@ export default function Routing({ onToggle, transitioning, version }) {
             <div className={custom.content}>
               <div className="Nav-container">
                 <Navigation index={24} />
-                <KraftModal {...props} />
+                <CraftModal {...props} />
               </div>
             </div>
           )}
@@ -319,7 +319,7 @@ export default function Routing({ onToggle, transitioning, version }) {
             <div className={custom.content}>
               <div className="Nav-container">
                 <Navigation index={25} />
-                <KraftSnackbar {...props} />
+                <CraftSnackbar {...props} />
               </div>
             </div>
           )}
