@@ -1,10 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from "react-router-dom";
 import { color } from '@edma/design-tokens/';
 import ScrollToTopController from '../ScrollToTopController';
+import Footer from '../Footer';
 import SplitText from '../SplitText';
-import { ReactComponent as ArrowDiag } from '../../assets/img/arrow.diag.svg';
 
 const useStyles = makeStyles(theme => ({
   huge: {
@@ -19,13 +18,13 @@ export default function Principles(props) {
     <>
       <ScrollToTopController />
       <div className='mask mask--huge'>
-        <div className={`huge ${classes.huge}`}>01<span className='huge--num'>b</span></div>
+        <div className={`huge ${classes.huge}`}>01<span className='huge--num'>c</span></div>
       </div>
       <span className='mask'>
         <div className='internal-heading'>Design Principles</div>
       </span>
       <div className='internal-intro'>
-        <SplitText copy="Team Craft builds tools and services that make it easier for our coworkers to help people realize their dream of home." />
+        <SplitText copy="Designing usable experiences with consistently repeatable results requires the right tools and the right state of mind." />
         <br/><br/>
         <SplitText copy="These principles are the core of how we design experiences on Team Craft." />
       </div>
@@ -87,19 +86,15 @@ export default function Principles(props) {
         Publish your work and share your ideas at every turn<br/>
         Work not just with each other, but with the world
       </div>
-      <div className='Footer Footer--foundation'>
-        <div className='Footer__left'></div>
-        <Link to='/foundation/language/' className='Footer__right'>
-          <div className='Footer__container'>
-            <div className='Footer__heading' data-num='01' data-let='c'>next</div>
-          </div>
-          <ArrowDiag className='Footer__icon' />
-          <div className='Footer__link'>
-            <div className='Footer__num'>01c.</div>
-            <div className='Footer__title'>Language</div>
-          </div>
-        </Link>
-      </div>
+      <Footer
+        type='foundation'
+        prevUrl='/foundation/team-craft/'
+        prevNum='01b.'
+        prevTitle='Team Craft'
+        nextUrl='/foundation/language/'
+        nextNum='01d.'
+        nextTitle='Language'
+      />
     </>
   );
 };

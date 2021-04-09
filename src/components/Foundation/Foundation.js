@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 import { color } from '@edma/design-tokens/';
 import ScrollToTopController from '../ScrollToTopController';
+import Footer from '../Footer';
 import SplitText from '../SplitText';
-import { ReactComponent as ArrowDiag } from '../../assets/img/arrow.diag.svg';
 
 const useStyles = makeStyles(theme => ({
   anchor: {
@@ -35,7 +35,7 @@ export default function Foundation(props) {
       <div className='internal-intro'>
         <SplitText copy="Home makes it easy to design and build PennyMac apps that people trust and understand how to use right from the start." />
         <br/><br/>
-        <SplitText copy="It takes more than components to create successful features and flows. These bedrock guidelines will help you design more usable PennyMac apps." />
+        <SplitText copy="It takes more than components to create successful features and flows. These bedrock guidelines will help you design more usable apps." />
       </div>
       <div className='internal-heading'>Consistency is key</div>
       <div className='internal-paragraph'>
@@ -97,19 +97,7 @@ export default function Foundation(props) {
           </li>
         </ul>
       </div>
-      <div className='Footer Footer--foundation'>
-        <div className='Footer__left'></div>
-        <Link to='/foundation/design-principles/' className='Footer__right'>
-          <div className='Footer__container'>
-            <div className='Footer__heading' data-num='01' data-let='b'>next</div>
-          </div>
-          <ArrowDiag className='Footer__icon' />
-          <div className='Footer__link'>
-            <div className='Footer__num'>01b.</div>
-            <div className='Footer__title'>Design Principles</div>
-          </div>
-        </Link>
-      </div>
+      <Footer type='foundation' nextUrl='/foundation/team-craft/' nextNum='01b.' nextTitle='Team Craft' />
     </>
   );
 };

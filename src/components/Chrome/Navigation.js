@@ -9,7 +9,7 @@ const navStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     maxWidth: '24vw',
-    width: '100%',
+    width: '100vw',
     minWidth: 250
   },
   list: {
@@ -114,9 +114,10 @@ export default function Navigation(props) {
         <div className={foundationOpen ? classes.menuOpen : classes.menu}>
           {[
             {'num': 'a.', 'title': 'Getting Started'},
-            {'num': 'b.', 'title': 'Design Principles'},
-            {'num': 'c.', 'title': 'Language'},
-            {'num': 'd.', 'title': 'Accessibility'}
+            {'num': 'b.', 'title': 'Team Craft'},
+            {'num': 'c.', 'title': 'Design Principles'},
+            {'num': 'd.', 'title': 'Language'},
+            {'num': 'e.', 'title': 'Accessibility'}
           ].map((text, index) => (
             <Link className={classes.anchor} key={index} to={'/foundation/' + text['title'].replace(/\s+/g, '-').toLowerCase() + '/'}>
               <div key={text['num']} className={classes.nested} data-selected={selectedIndex === index}>
@@ -140,7 +141,7 @@ export default function Navigation(props) {
             {'num': 'g.', 'title': 'Typography'}
           ].map((text, index) => (
             <Link className={classes.anchor} key={index + 4} to={'/brand/' + text['title'].replace(/\s+/g, '-').toLowerCase() + '/'}>
-              <div key={text['num']} className={classes.nested} data-selected={selectedIndex === index + 4}>
+              <div key={text['num']} className={classes.nested} data-selected={selectedIndex === index + 5}>
                 <div><span className={classes.num}>{text['num']}</span>{text['title']}</div>
               </div>
             </Link>
@@ -166,7 +167,7 @@ export default function Navigation(props) {
             {'num': 'l.', 'title': 'Z-index'}
           ].map((text, index) => (
             <Link className={classes.anchor} key={index + 11} to={'/tokens/' + text['title'].replace(/\s+/g, '-').toLowerCase() + '/'}>
-              <div key={text['num']} className={classes.nested} data-selected={selectedIndex === index + 11}>
+              <div key={text['num']} className={classes.nested} data-selected={selectedIndex === index + 12}>
                 <div><span className={classes.num}>{text['num']}</span>{text['title']}</div>
               </div>
             </Link>
@@ -183,7 +184,7 @@ export default function Navigation(props) {
             {'num': 'c.', 'title': 'React Components'}
           ].map((text, index) => (
             <Link className={classes.anchor} key={index + 28} to={'/components/' + text['title'].replace(/\s+/g, '-').toLowerCase() + '/'}>
-              <div key={text['num']} className={classes.nested} data-selected={selectedIndex === index + 27}>
+              <div key={text['num']} className={classes.nested} data-selected={selectedIndex === index + 28}>
                 <div><span className={classes.num}>{text['num']}</span>{text['title']}</div>
               </div>
             </Link>

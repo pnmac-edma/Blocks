@@ -62,39 +62,39 @@ export default function Home(props) {
         <div className={`${classes.card} card-1`}>
           <div className={classes.cardHeading}>Foundation</div>
           <div className={classes.cardDescription}>
-            Learn how we use language to design more thoughtful product experiences.
+            Find out how we make sure that our design is accessible, user focused, and intentional.
           </div>
           <Link to="/foundation/getting-started/" className={classes.cardLink}>
             View Content Guidelines
           </Link>
         </div>
         <div className={`${classes.card} card-2`}>
-          <div className={classes.cardHeading}>Design</div>
+          <div className={classes.cardHeading}>Brand</div>
           <div className={classes.cardDescription}>
-            Find out how we approach the visual element of our interfaces with purpose.
+            Learn how we use design to maintain a consistent and professional brand image.
           </div>
-          <Link to="/foundation/getting-started/" className={classes.cardLink}>
-            View Content Guidelines
+          <Link to="/brand/getting-started/" className={classes.cardLink}>
+            View Brand Guidelines
           </Link>
         </div>
       </div>
       <div className={classes.cards}>
         <div className={`${classes.card} card-3`}>
-          <div className={classes.cardHeading}>Components</div>
+          <div className={classes.cardHeading}>Design</div>
           <div className={classes.cardDescription}>
-            Use components as building blocks while you develop new products and features.
+            See how we put the pieces together to create meaningful product experiences.
           </div>
           <Link to="/foundation/getting-started/" className={classes.cardLink}>
             View Content Guidelines
           </Link>
         </div>
         <div className={`${classes.card} card-4`}>
-          <div className={classes.cardHeading}>Patterns</div>
+          <div className={classes.cardHeading}>Components</div>
           <div className={classes.cardDescription}>
-            See how we put the pieces together to create meaningful product experiences.
+            Use components as building blocks while you develop new products and features.
           </div>
           <Link to="/foundation/getting-started/" className={classes.cardLink}>
-            View Content Guidelines
+            View Components
           </Link>
         </div>
       </div>

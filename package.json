@@ -1,4 +1,5 @@
 {
+  "homepage": "https://pnmac-edma.github.io/Home",
   "name": "@edma/home",
   "version": "1.0.0",
   "dependencies": {
@@ -29,7 +30,9 @@
     "eject": "react-scripts eject",
     "tokens": "rm -rf package-lock.json && npm i @edma/design-tokens --save-dev",
     "docs": "styleguidist server",
-    "docs:build": "styleguidist build"
+    "docs:build": "styleguidist build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -48,6 +51,7 @@
   },
   "devDependencies": {
     "@edma/design-tokens": "^4.6.0",
+    "gh-pages": "^3.1.0",
     "react-selectize": "^3.0.1",
     "react-styleguidist": "^9.1.14"
   }
