@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Package from '../package.json';
 import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -18,15 +18,42 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const useThemeDetector = () => {
+  const getCurrentTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [isDarkTheme, setIsDarkTheme] = useState(getCurrentTheme());
+  const mqListener = (e => {
+      setIsDarkTheme(e.matches);
+  });
+
+  useEffect(() => {
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    darkThemeMq.addListener(mqListener);
+    return () => darkThemeMq.removeListener(mqListener);
+  }, []);
+  return isDarkTheme;
+}
+
 export default function App() {
   const custom = useStyles();
   const [ isTransitioning, setTransition ] = useState(false);
+  const isDarkTheme = useThemeDetector();
 
   // Define Kirby theme colors using Tokens in App state,
   // so that we can let users customize them later.
   const [theme, setTheme] = useState({
     typography: homeTheme.typography,
-    palette: homeTheme.palette
+    palette: {
+      type: isDarkTheme ? 'dark' : 'light'
+    }
+  });
+
+  useEffect(() => {
+    document.querySelector('body')
+      .classList.add(theme.palette.type === 'light' ? 'light' : 'dark');
+    return () => {
+      document.querySelector('body')
+        .classList.remove(theme.palette.type === 'light' ? 'light' : 'dark');
+    };
   });
 
   // Toggles between light and dark modes.
@@ -69,10 +96,14 @@ export default function App() {
 
   return (
     <ThemeProvider theme={kirby}>
-      <div className="App">
+      <div className={`App ${theme.palette.type === 'light' ? '' : 'dark'}`}>
         <div className={custom.root}>
           <CssBaseline />
-          <Routing onToggle={toggleDarkMode} transitioning={isTransitioning} version={appVer} />
+          <main className={`main`}>
+            <div className={`wrapper`}>
+              <Routing onToggle={toggleDarkMode} transitioning={isTransitioning} version={appVer} />
+            </div>
+          </main>
         </div>
       </div>
     </ThemeProvider>

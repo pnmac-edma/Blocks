@@ -3,6 +3,7 @@
 
 // Import App styles
 @import '_scss/app';
+@import '_scss/internal';
 
 // Import components
 @import '_scss/typography';
@@ -16,10 +17,8 @@
 
 // Gilroy Regular
 @font-face {
-  font-family: 'Gilroy';
-  src: url('../fonts/Gilroy-Regular.ttf') format('truetype'),
-       url('../fonts/Gilroy-Regular.woff') format('woff'),
-       url('../fonts/Gilroy-Regular.woff2') format('woff2');
+  font-family: 'Gilroy-Regular';
+  src: url('../fonts/Gilroy-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

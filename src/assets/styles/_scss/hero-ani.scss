@@ -35,10 +35,12 @@
 
 .star--med {
   animation: stars 4s ease-in-out infinite;
+  animation-delay: 500ms;
 }
 
 .star--fast {
   animation: stars 2s ease-in-out infinite;
+  animation-delay: 250ms;
 }
 
 .lights-on--flicker {
@@ -280,6 +282,303 @@
   .incoming {
     z-index: 99;
   }
+}
+
+.mask-rotate-1 {
+  animation: rotates 35s linear infinite;
+  transform-origin: center;
+}
+
+.mask-rotate-1-rev {
+  animation: rotates 35s linear infinite reverse;
+  transform-origin: center;
+}
+
+.mask-rotate-2 {
+  animation: rotates 60s linear infinite reverse;
+  transform-origin: center;
+  overflow: visible;
+}
+
+.nebula-slide-1 {
+  animation: slide 5s linear infinite;
+}
+
+.nebula-slide-1-rev {
+  animation: slide-rev 5s linear infinite;
+}
+
+.nebula-slide-2 {
+  animation: slide 10s linear infinite;
+  animation-delay: 500ms;
+}
+
+.nebula-slide-2-rev {
+  animation: slide-rev 10s linear infinite;
+  animation-delay: 500ms;
+}
+
+.nebula-slide-3 {
+  animation: slide 15s linear infinite;
+  animation-delay: 250ms;
+}
+
+.nebula-slide-3-rev {
+  animation: slide-rev 15s linear infinite;
+  animation-delay: 250ms;
+}
+
+.ufo {
+  animation: ufo 15s ease-in-out infinite;
+  animation-delay: 5s;
+  transform: translate(-1020px, -500px);
+}
+
+.brain {
+  animation: zooming 1.5s ease-in-out infinite;
+  transform-origin: top;
+}
+
+.clouds-fast-1 {
+  animation: falling 1s linear infinite;
+  transform: translate(0, -1000px);
+  animation-delay: 1s;
+}
+
+.clouds-fast-2 {
+  animation: falling 3s linear infinite;
+  transform: translate(0, -1000px);
+  animation-delay: 500ms;
+}
+
+.clouds-fast-3 {
+  animation: falling 1.5s linear infinite;
+  transform: translate(0, -1000px);
+}
+
+.clouds-fast-4 {
+  animation: falling 2s linear infinite;
+  transform: translate(0, -1000px);
+}
+
+.clouds-slow-1 {
+  animation: falling 8s linear infinite;
+  transform: translate(0, -1000px);
+  opacity: 0.9;
+}
+
+.clouds-slow-2 {
+  animation: falling-2 20s linear infinite;
+  transform: translate(0, -1000px);
+  animation-delay: 5s;
+  opacity: 0.9;
+}
+
+.clouds-slow-3 {
+  animation: falling 5s linear infinite;
+  transform: translate(0, -1000px);
+}
+
+.clouds-slow-4 {
+  animation: falling 6s linear infinite;
+  transform: translate(0, -1000px);
+  animation-delay: 2s;
+}
+
+.fire-drip-1 {
+  animation: stretch 1s linear infinite;
+}
+
+.fire-drip-2 {
+  animation: stretch 2s linear infinite;
+  animation-delay: 500ms;
+}
+
+.fire-drip-3 {
+  animation: stretch 3s linear infinite;
+  animation-delay: 1s;
+}
+
+.fire-drip-4 {
+  animation: stretch 4s linear infinite;
+  animation-delay: 2s;
+}
+
+.fire-drip-1-rev {
+  animation: stretch-rev 1s linear infinite;
+}
+
+.fire-drip-2-rev {
+  animation: stretch-rev 2s linear infinite;
+  animation-delay: 500ms;
+}
+
+.fire-drip-3-rev {
+  animation: stretch-rev 3s linear infinite;
+  animation-delay: 1s;
+}
+
+.fire-drip-4-rev {
+  animation: stretch-rev 4s linear infinite;
+  animation-delay: 2s;
+}
+
+.fire-drip-5 {
+  animation: stretch-sm 3s linear infinite;
+}
+
+.firebrain {
+  animation: stretch-sm 1.5s ease-in-out infinite;
+}
+
+.fire-droplet-1 {
+  animation: dropping 2s ease-in-out infinite;
+  animation-delay: 3s;
+  transform: translate(0px, -200px);
+}
+
+.fire-droplet-2 {
+  animation: dropping-2 6s ease-in-out infinite;
+  transform: translate(0px, -300px);
+}
+
+.fire-droplet-3 {
+  animation: dropping-2 5s ease-in-out infinite;
+  transform: translate(0px, -300px);
+}
+
+.simplify path,
+.simplify polyline,
+.simplify line {
+  transition: all .7s ease-in-out;
+}
+
+.simplify .simple {
+  opacity: 0;
+  transition: all .6s ease-in-out;
+}
+
+.simple-s,
+.simple-i,
+.simple-m,
+.simple-p,
+.simple-l,
+.simple-e {
+  transform: translateY(-20rem);
+}
+
+.simplify:hover .line {
+  d: path("M114 843.968L166 843L227.025 843.871L294 843.935L366 843L433.919 843.71L502.884 843.613L594 843L630 843.871L703.392 843.935L770 843L842 843.968L902 843L986 843.194L1061.62 843.032L1110 843.968L1197 843.871");
+  transition: all 1s ease-in-out;
+}
+
+.simplify:hover .simple {
+  opacity: 1;
+}
+
+.simplify:hover .simple-s {
+  transform: translateY(0);
+}
+
+.simplify:hover .simple-i {
+  transform: translateY(0);
+  transition-delay: 100ms;
+}
+
+.simplify:hover .simple-m {
+  transform: translateY(0);
+  transition-delay: 200ms;
+}
+
+.simplify:hover .simple-p {
+  transform: translateY(0);
+  transition-delay: 300ms;
+}
+
+.simplify:hover .simple-l {
+  transform: translateY(0);
+  transition-delay: 400ms;
+}
+
+.simplify:hover .simple-e {
+  transform: translateY(0);
+  transition-delay: 500ms;
+}
+
+.brain-1 {
+  animation: brain-1 5s linear infinite;
+  transform-origin: left;
+}
+
+.brain-2 {
+  animation: brain-2 5s linear infinite;
+  transform-origin: center;
+}
+
+.brain-3 {
+  animation: brain-3 5s linear infinite;
+  transform-origin: right;
+}
+
+.brain-4 {
+  animation: brain-4 5s linear infinite;
+  transform-origin: center;
+}
+
+$time: 2s;
+
+.wiggle-1 {
+  animation: wiggle $time linear infinite;
+}
+
+.wiggle-2 {
+  animation: wiggle $time linear infinite;
+  animation-delay: 100ms;
+}
+
+.wiggle-3 {
+  animation: wiggle $time linear infinite;
+  animation-delay: 200ms;
+}
+
+.wiggle-4 {
+  animation: wiggle $time linear infinite;
+  animation-delay: 300ms;
+}
+
+.wiggle-5 {
+  animation: wiggle $time linear infinite;
+  animation-delay: 400ms;
+}
+
+.wiggle-6 {
+  animation: wiggle $time linear infinite;
+  animation-delay: 500ms;
+}
+
+.wiggle-7 {
+  animation: wiggle $time linear infinite;
+  animation-delay: 600ms;
+}
+
+.wiggle-8 {
+  animation: wiggle $time linear infinite;
+  animation-delay: 700ms;
+}
+
+.wiggle-9 {
+  animation: wiggle $time linear infinite;
+  animation-delay: 800ms;
+}
+
+.wiggle-10 {
+  animation: wiggle $time linear infinite;
+  animation-delay: 900ms;
+}
+
+.wiggle-11 {
+  animation: wiggle $time linear infinite;
+  animation-delay: 1s;
 }
 
 .moon-exiting,
@@ -591,5 +890,238 @@
   }
   100% {
     transform: translateX(800px) translateY(400px);
+  }
+}
+
+@keyframes rotates {
+  0% {
+    transform: rotate(0deg) skewY(0deg) skewX(0deg);
+  }
+  50% {
+    transform: rotate(180deg) skewY(-20deg) skewX(15deg);
+  }
+  100% {
+    transform: rotate(360deg) skewY(0deg) skewX(0deg);
+  }
+}
+
+@keyframes slide {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(70px);
+  }
+}
+
+@keyframes slide-rev {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-70px);
+  }
+}
+
+@keyframes stretch {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes stretch-sm {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(25px);
+  }
+}
+
+@keyframes stretch-rev {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(50px);
+  }
+}
+
+@keyframes falling {
+  0% {
+    transform: translate(0px, -1000px);
+  }
+  100% {
+    transform: translate(0px, 1300px)
+  }
+}
+
+@keyframes falling-2 {
+  0%, 50% {
+    transform: translate(0px, -1000px);
+  }
+  100% {
+    transform: translate(0px, 1300px)
+  }
+}
+
+@keyframes dropping {
+  0%, 50% {
+    transform: translate(0px, -200px);
+  }
+  100% {
+    transform: translate(0px, 70px);
+  }
+}
+
+@keyframes dropping-2 {
+  0%, 75% {
+    transform: translate(0px, -300px);
+  }
+  100% {
+    transform: translate(0px, 400px);
+  }
+}
+
+@keyframes zooming {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes ufo {
+  0% {
+    transform: translate(-1020px, -500px);
+  }
+  50% {
+    transform: translate(-1020px, -500px);
+  }
+  51% {
+    transform: translate(10px, 90px);
+  }
+  60% {
+    transform: translate(-20px, 70px);
+  }
+  70% {
+    transform: translate(10px, 90px);
+  }
+  80% {
+    transform: translate(-20px, 70px);
+  }
+  90% {
+    transform: translate(10px, 90px);
+  }
+  100% {
+    transform: translate(700px, -410px);
+  }
+}
+
+@keyframes brain-1 {
+  0%, 100% {
+    transform: rotate(0);
+  }
+
+  15% {
+    transform: rotate(-20deg);
+  }
+  20% {
+    transform: rotate(-21deg);
+  }
+  25% {
+    transform: rotate(-20deg) scale(1.05);
+  }
+  30% {
+    transform: rotate(-21deg) scale(1);
+  }
+  35% {
+    transform: rotate(-20deg);
+  }
+  40%, 70% {
+    transform: rotate(0);
+    opacity: 1;
+  }
+  75% {
+    transform: skewX(-10deg) skewY(-10deg) translateX(100px) translateY(100px);
+    opacity: 1;
+  }
+  80%, 100% {
+    transform: skewX(-30deg) skewY(-30deg) translateX(500px) translateY(300px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes brain-2 {
+  0%, 100% {
+    transform: skewX(0) skewY(0) translateY(0) translateX(0);
+  }
+  15% {
+    transform: skewX(0) skewY(0);
+    opacity: 1;
+  }
+  20% {
+    transform: skewX(10deg) skewY(10deg) translateX(-25px) translateY(-50px);
+    opacity: 1;
+  }
+  25% {
+    transform: skewX(30deg) skewY(30deg) translateY(-100px) translateX(-200px) scale(0.5);
+    opacity: 0;
+  }
+  30%, 100% {
+    opacity: 0;
+    transform: skewX(0) skewY(0) translateY(0) translateX(500px);
+  }
+}
+
+@keyframes brain-3 {
+  0% {
+    transform: translateX(800px);
+  }
+  20% {
+    transform: translateX(800px);
+  }
+  55% {
+    transform: translateX(0);
+  }
+  70% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(21deg);
+  }
+  80% {
+    transform: rotate(20deg) scale(1.05);
+  }
+  85% {
+    transform: rotate(21deg) scale(1);
+  }
+  90% {
+    transform: rotate(20deg);
+  }
+  95%, 100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes brain-4 {
+  0%, 70% {
+    transform: translateX(-800px);
+  }
+  95% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
   }
 }

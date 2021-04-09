@@ -57,10 +57,10 @@ const useStyles = makeStyles (theme => ({
     fontSizeName: {
         color: theme.palette.type === 'light' ? color.b400 : color.b200,
         fontFamily: font.mono,
-        fontSize: fontSize['body0'],
+        fontSize: fontSize['body1'],
     },
     mono: {
-        fontSize: fontSize['body0'],
+        fontSize: fontSize['body1'],
         fontFamily: font.mono,
     },
     prev: {

@@ -1,236 +1,104 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import {
-  Box,
-  Divider,
-  List,
-  ListItem,
-  Typography
-} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
-import { borderRadius, color, fontSize } from '@edma/design-tokens';
-import ScrollToTopController from './components/ScrollToTopController';
-import { ReactComponent as GettingStartedLight } from './assets/img/graphic.gettingstarted.light.svg';
-import { ReactComponent as GettingStartedDark } from './assets/img/graphic.gettingstarted.dark.svg';
-import { ReactComponent as ComponentsLight } from './assets/img/graphic.components.light.svg';
-import { ReactComponent as ComponentsDark } from './assets/img/graphic.components.dark.svg';
-import { ReactComponent as HouseLight } from './assets/img/graphic.house.light.svg';
-import { ReactComponent as HouseDark } from './assets/img/graphic.house.dark.svg';
-import { ReactComponent as FoundationIcon } from './assets/img/icon.foundation.svg';
-import { ReactComponent as DesignIcon } from './assets/img/icon.design.svg';
-import { ReactComponent as ComponentsIcon } from './assets/img/icon.components.svg';
-import { ReactComponent as PatternsIcon } from './assets/img/icon.patterns.svg';
+import { color, font } from '@edma/design-tokens';
 
 const useStyles = makeStyles(theme => ({
-  content: {
-    background: theme.palette.type === 'light' ? color.white : color.black,
-    borderRadius: 10
+  version: {
+    position: 'fixed',
+    bottom: 64,
+    right: 32,
+    fontFamily: 'Gilroy-Regular',
+    fontWeight: 'normal',
+    fontSize: 14,
+    transform: 'rotate(90deg)'
   },
-  caption: {
-    fontFamily: 'Open Sans',
-    color: theme.palette.type === 'light' ? color.g700 : color.g300,
-    minWidth: 260
+  lineWrapper: {
+    margin: '40px 0 72px'
   },
-  divider: {
-    height: 4,
-    color: theme.palette.type === 'light' ? color.g100 : color.g700
+  cards: {
+    display: 'flex',
+    flexDirection: 'row'
   },
-  updates: {
-    display: 'table-cell',
-    background: theme.palette.type === 'light' ? color.g100 : color.g800,
-    borderRadius: borderRadius[1],
-    padding: 32
+  card: {
+    width: '24vw',
+    textAlign: 'left',
+    margin: '0 104px 104px 0',
+    justifyContent: 'space-between',
+    display: 'flex',
+    flexDirection: 'column',
+    opacity: 0
   },
-  resources: {
-    display: 'table-cell',
-    padding: 32
+  cardHeading: {
+    fontFamily: font.heading,
+    fontSize: 32,
+    fontWeight: 'bold',
+    marginBottom: 24
   },
-  anchor: {
-    color: theme.palette.type === 'light' ? color.b700 : color.b200,
+  cardDescription: {
+    marginBottom: 32,
+    lineHeight: 1.7,
+    fontSize: 16
   },
-  inlineCode: {
-    background: theme.palette.type === 'light' ? color.g200 : color.g700,
-    fontSize: fontSize['0'],
+  cardLink: {
+    color: theme.palette.type === 'light' ? color.black : color.white,
+    fontSize: 16,
+
+    '&:hover': {
+      textDecoration: 'none'
+    }
   }
 }));
 
-let captions = require('./captions.json'),
-  caption = captions[Math.floor(Math.random()*captions.length)];
-
 export default function Home(props) {
-  const custom = useStyles();
-  const theme = useTheme();
+  const classes = useStyles();
 
   return (
-    <main className="Main">
-      <ScrollToTopController />
-      <div className="Main__header">
-        <div className="Main__left-header">
-          <Typography variant="h1" className="Main__right-header">
-            Home
-          </Typography>
-          <Typography variant="h3">
-            {caption}
-          </Typography>
+    <>
+      <div className={classes.lineWrapper}>
+        <div className={`line`} />
+      </div>
+      <div className={classes.cards}>
+        <div className={`${classes.card} card-1`}>
+          <div className={classes.cardHeading}>Foundation</div>
+          <div className={classes.cardDescription}>
+            Learn how we use language to design more thoughtful product experiences.
+          </div>
+          <Link to="/foundation/getting-started/" className={classes.cardLink}>
+            View Content Guidelines
+          </Link>
         </div>
-        <div className={`Main__right-header${props.transitioning ? " is-transitioning" : ""}`}>
-          {
-            theme.palette.type === 'light' ?
-              <HouseLight />
-            :
-              <HouseDark />
-          }
+        <div className={`${classes.card} card-2`}>
+          <div className={classes.cardHeading}>Design</div>
+          <div className={classes.cardDescription}>
+            Find out how we approach the visual element of our interfaces with purpose.
+          </div>
+          <Link to="/foundation/getting-started/" className={classes.cardLink}>
+            View Content Guidelines
+          </Link>
         </div>
       </div>
-
-      <Box className={`Content ${custom.content}`} boxShadow={16}>
-        <div className="Content__wrapper">
-          <div className="Content__section">
-            <Typography variant="h2">
-              Getting Started
-            </Typography>
-            <Typography variant="h3">
-              These guides will show you how Home can help you design for PennyMac platforms.
-            </Typography>
-            <List className="Content__list">
-              <ListItem>
-                <Link key='0' to='/foundation/getting-started' className={custom.anchor}>Design Foundation</Link>
-              </ListItem>
-              <ListItem>
-                <Link key='0' to='/brand/getting-started' className={custom.anchor}>Brand Guidelines</Link>
-              </ListItem>
-              <ListItem>
-                <Link key='0' to='/tokens/getting-started' className={custom.anchor}>Using Design Tokens</Link>
-              </ListItem>
-              <ListItem>
-                <Link key='0' to='/contribute' className={custom.anchor}>Contributing to Home</Link>
-              </ListItem>
-            </List>
+      <div className={classes.cards}>
+        <div className={`${classes.card} card-3`}>
+          <div className={classes.cardHeading}>Components</div>
+          <div className={classes.cardDescription}>
+            Use components as building blocks while you develop new products and features.
           </div>
-          <div className="Content__section">
-          {
-            theme.palette.type === 'light' ?
-              <GettingStartedLight />
-            :
-              <GettingStartedDark />
-          }
-          </div>
+          <Link to="/foundation/getting-started/" className={classes.cardLink}>
+            View Content Guidelines
+          </Link>
         </div>
-        <div className="Content__wrapper">
-          <div className="Content__section">
-          {
-            theme.palette.type === 'light' ?
-              <ComponentsLight />
-            :
-              <ComponentsDark />
-          }
+        <div className={`${classes.card} card-4`}>
+          <div className={classes.cardHeading}>Patterns</div>
+          <div className={classes.cardDescription}>
+            See how we put the pieces together to create meaningful product experiences.
           </div>
-          <div className="Content__section">
-            <Typography variant="h2">
-              Components
-            </Typography>
-            <Typography variant="h5" className={custom.caption}>
-              Reusable building blocks that make it easy to rapidly create new product and features.
-            </Typography>
-            <List className="Content__list">
-              <ListItem>
-                <Link key='0' to='/components/getting-started' className={custom.anchor}>Using Components</Link>
-              </ListItem>
-              <ListItem>
-                <Link key='0' to='/components/' className={custom.anchor}>Storybook Component Library</Link>
-              </ListItem>
-            </List>
-          </div>
+          <Link to="/foundation/getting-started/" className={classes.cardLink}>
+            View Content Guidelines
+          </Link>
         </div>
-        <Box mt={7}>
-          <Divider className={custom.divider} />
-        </Box>
-        <Box>
-          <div className="Content__bottom-section">
-            <FoundationIcon />
-            <Typography variant="h6">
-              Foundation
-            </Typography>
-            <Typography variant="body2" className="Content__pg">
-              Find out how we make sure that our design is accessible, user focused, and intentional.
-            </Typography>
-            <Typography variant="body2" className="Content__pg">
-              <Link key='0' to='/foundation/design-principles' className={custom.anchor}>View Core Principles</Link>
-            </Typography>
-          </div>
-          <div className="Content__bottom-section">
-            <DesignIcon />
-            <Typography variant="h6">
-              Brand
-            </Typography>
-            <Typography variant="body2" className="Content__pg">
-              Learn how we use design to maintain a consistent and friendly brand image.
-            </Typography>
-            <Typography variant="body2" className="Content__pg">
-            <Link key='0' to='/brand/getting-started' className={custom.anchor}>View Brand Guidelines</Link>
-            </Typography>
-          </div>
-          <div className="Content__bottom-section">
-            <PatternsIcon />
-            <Typography variant="h6">
-              Patterns
-            </Typography>
-            <Typography variant="body2" className="Content__pg">
-              See how we put the pieces together to create meaningful product experiences.
-            </Typography>
-            <Typography variant="body2" className="Content__pg">
-            <a href="https://www.figma.com/file/4fq1g7wxoTYfdLFAoxco7x/Pattern-Library" target="_blank" rel="noopener noreferrer" className={custom.anchor}>View Pattern Library</a>
-            </Typography>
-          </div>
-          <div className="Content__bottom-section">
-            <ComponentsIcon />
-            <Typography variant="h6">
-              Components
-            </Typography>
-            <Typography variant="body2" className="Content__pg">
-              Use components as building blocks while you develop new products and features.
-            </Typography>
-            <Typography variant="body2" className="Content__pg">
-              <Link key='0' to='/components' className={custom.anchor}>View Component Library</Link>
-            </Typography>
-          </div>
-        </Box>
-        <Box mb={8}>
-          <Divider className={custom.divider} />
-        </Box>
-        <Box className="Content__wrapper">
-          <div className={`Content__section ${custom.updates}`}>
-            <Typography variant="h6">
-              What's New
-            </Typography>
-            <Typography variant="h4">
-              Home v0.0.1
-            </Typography>
-            <Typography variant="body2" className="Content__pg">
-              A new and improved version of the PennyMac design system, now called Home! Upgrade to Home v0.0.1 to explore new possibilities for your apps and projects.
-            </Typography>
-            <Typography variant="body2" className="Content__pg">
-              <Link key='0' to='/release' className={custom.anchor}>View Full Release Notes</Link>
-            </Typography>
-          </div>
-          <div className={`Content__section ${custom.resources}`}>
-            <Typography variant="h6">
-              Resources
-            </Typography>
-            <Typography variant="body2" className="Content__pg">
-              Downloads, links, and third-party tools to help you and your team design and build products for PennyMac.
-            </Typography>
-            <List className="Content__list">
-              <ListItem>
-                <a href="https://www.figma.com/file/hhRwCxtuZb27X3XFI03rqZ/Kirby-Patterns" target="_blank" rel="noopener noreferrer" className={custom.anchor}>Kirby UI Patterns</a>
-              </ListItem>
-              <ListItem>
-              <a href="https://www.figma.com/file/WiqLs1gy8b0N2df9rPDCH4/Rims-Patterns" target="_blank" rel="noopener noreferrer" className={custom.anchor}>RIMS UI Patterns</a>
-              </ListItem>
-            </List>
-          </div>
-        </Box>
-      </Box>
-    </main>
+      </div>
+      <div className={classes.version}>v2.0.0</div>
+    </>
   )
 };

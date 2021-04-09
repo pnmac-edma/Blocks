@@ -58,7 +58,7 @@ const useStyles = makeStyles (theme => ({
         color: theme.palette.type === 'light' ? color.b400 : color.b200,
         fontFamily: font.mono,
         fontWeight: weight['regular'],
-        fontSize: fontSize['body0']
+        fontSize: fontSize['body1']
     },
     mono: {
         fontWeight: weight['regular'],

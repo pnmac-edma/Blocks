@@ -1,4 +1,4 @@
-import { color, font, fontSize, spacing, weight } from '@edma/design-tokens';
+import { color, font, fontSize, weight } from '@edma/design-tokens';
 
 const Theme = {
   typography: {
@@ -13,38 +13,12 @@ const Theme = {
       fontFamily: font.heading,
       fontSize: fontSize['h1'],
       fontWeight: weight['bold'],
-      '&::after': {
-        content: '""',
-        background: color.y400,
-        position: 'relative',
-        display: 'block',
-        marginBottom: spacing['2'],
-        width: 64,
-        height: 8
-      }
     },
     h2: {
       fontFamily: font.heading,
       fontSize: fontSize['h2'],
       fontWeight: weight['bold'],
       maxWidth: 600,
-      '& span': {
-        fontSize: 14,
-        textTransform: 'uppercase',
-        letterSpacing: 2,
-        display: 'block',
-        marginBottom: 8
-      },
-      '&::after': {
-        content: '""',
-        background: color.y400,
-        position: 'relative',
-        display: 'block',
-        marginBottom: spacing['3'],
-        width: 64,
-        height: 4,
-        top: 8
-      }
     },
     h3: {
       fontFamily: font.body,

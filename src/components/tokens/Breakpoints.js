@@ -116,13 +116,13 @@ const Breakpoints = () => {
     const jsCodeString = JSON.stringify(breakpoint, null, 1);
     const jsonCodeString = JSON.stringify(jsonBreakpoint, null, 1);
     const scssCodeString = `
-$breakpoint-1: 750px;
-$breakpoint-2: 1050px;
-$breakpoint-3: 1200px;`;
+$breakpoint-phone: 750px;
+$breakpoint-tablet: 1050px;
+$breakpoint-desktop: 1200px;`;
     const cssCodeString = `
---breakpoint-1: 750px;
---breakpoint-2: 1050px;
---breakpoint-3: 1200px;`;
+--breakpoint-phone: 750px;
+--breakpoint-tablet: 1050px;
+--breakpoint-desktop: 1200px;`;
 
     const [value, setValue] = React.useState(0);
 

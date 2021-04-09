@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
 import { makeStyles } from '@material-ui/core/styles';
 
 import NotFound from './NotFound';
-import TopBar from './Chrome/TopBar';
+import Navigation from './Chrome/Navigation';
 import Home from '../Home';
-import Principles from '../components/Foundation/Principles';
+import Foundation from './Foundation/Foundation';
+import Principles from './Foundation/Principles';
+import Language from './Foundation/Language';
+import Accessibility from './Foundation/Accessibility';
 import Tokens from './Tokens';
 import Colors from './Tokens/Color';
 import BorderRadius from './Tokens/BorderRadius';
@@ -19,39 +22,34 @@ import LineHeight from './Tokens/LineHeight';
 import Shadow from './Tokens/Shadow';
 import Spacing from './Tokens/Spacing';
 import Zindex from './Tokens/Zindex';
-import Brand from '../components/Brand';
-import Ethics from '../components/Brand/Ethics';
-import Voice from '../components/Brand/Voice';
-import Identity from '../components/Brand/Identity';
-import Iconography from '../components/Brand/Iconography';
-import Photography from '../components/Brand/Photography';
-import Modal from '../components/Craft-Components/Modal/Modal';
-import Snackbar from '../components/Craft-Components/SnackBar/SnackBar';
-import Typography from '../components/Brand/Typography';
-import Navigation from '../components/Navigation';
+import Brand from './Brand';
+import Ethics from './Brand/Ethics';
+import Voice from './Brand/Voice';
+import Identity from './Brand/Identity';
+import Iconography from './Brand/Iconography';
+import Photography from './Brand/Photography';
+import Typography from './Brand/Typography';
+import Components from './React/React';
+import Modal from './React/Modal/Modal';
+import Snackbar from './React/SnackBar/SnackBar';
 
 const useStyles = makeStyles((theme) => ({
   content: {
-    flexGrow: 1
+    flexGrow: 1,
+    display: 'flex',
+    flexDirection: 'row',
+    position: 'absolute'
   }
 }));
 
 export default function Routing({ onToggle, transitioning, version }) {
   const custom = useStyles();
-  const [headline, setHeadline] = useState('null');
-  const [index, setIndex] = useState('null');
 
   return (
     <Router>
-      <TopBar
-        onToggle={onToggle}
-        version={version}
-        headline={headline}
-        index={index}
-      />
       <AnimatedSwitch
-        atEnter={{ opacity: 0 }}
-        atLeave={{ opacity: 0 }}
+        atEnter={{ opacity: 1 }}
+        atLeave={{ opacity: 1 }}
         atActive={{ opacity: 1 }}
         className="switch-wrapper"
       >
@@ -60,12 +58,25 @@ export default function Routing({ onToggle, transitioning, version }) {
           exact
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Blocks Design System')}
-              <Home
-                {...props}
-                onToggle={onToggle}
-                transitioning={transitioning}
-              />
+              <Navigation />
+              <div className='content'>
+                <Home
+                  {...props}
+                  onToggle={onToggle}
+                  transitioning={transitioning}
+                />
+              </div>
+            </div>
+          )}
+        />
+        <Route
+          path="/foundation/getting-started"
+          render={(props) => (
+            <div className={custom.content}>
+              <Navigation index={0} />
+              <div className='content'>
+                <Foundation {...props} />
+              </div>
             </div>
           )}
         />
@@ -73,10 +84,31 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/foundation/design-principles"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Core Design Principles')}
-              <div className="Nav-container">
-                <Navigation index={1} />
+              <Navigation index={1} />
+              <div className='content'>
                 <Principles {...props} />
+              </div>
+            </div>
+          )}
+        />
+        <Route
+          path="/foundation/language"
+          render={(props) => (
+            <div className={custom.content}>
+              <Navigation index={2} />
+              <div className='content'>
+                <Language {...props} />
+              </div>
+            </div>
+          )}
+        />
+        <Route
+          path="/foundation/accessibility"
+          render={(props) => (
+            <div className={custom.content}>
+              <Navigation index={3} />
+              <div className='content'>
+                <Accessibility {...props} />
               </div>
             </div>
           )}
@@ -85,8 +117,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/brand/getting-started"
           render={(props) => (
             <div className={custom.content}>
-              <div className="Nav-container">
-                <Navigation index={4} />
+              <Navigation index={4} />
+              <div className='content'>
                 <Brand {...props} />
               </div>
             </div>
@@ -96,8 +128,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/brand/core-values"
           render={(props) => (
             <div className={custom.content}>
-              <div className="Nav-container">
-                <Navigation index={5} />
+              <Navigation index={5} />
+              <div className='content'>
                 <Ethics {...props} />
               </div>
             </div>
@@ -107,8 +139,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/brand/voice-&-tone"
           render={(props) => (
             <div className={custom.content}>
-              <div className="Nav-container">
-                <Navigation index={6} />
+              <Navigation index={6} />
+              <div className='content'>
                 <Voice {...props} />
               </div>
             </div>
@@ -118,8 +150,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/brand/identity"
           render={(props) => (
             <div className={custom.content}>
-              <div className="Nav-container">
-                <Navigation index={7} />
+              <Navigation index={7} />
+              <div className='content'>
                 <Identity {...props} />
               </div>
             </div>
@@ -129,8 +161,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/brand/iconography"
           render={(props) => (
             <div className={custom.content}>
-              <div className="Nav-container">
-                <Navigation index={8} />
+              <Navigation index={8} />
+              <div className='content'>
                 <Iconography {...props} />
               </div>
             </div>
@@ -140,8 +172,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/brand/photography"
           render={(props) => (
             <div className={custom.content}>
-              <div className="Nav-container">
-                <Navigation index={9} />
+              <Navigation index={9} />
+              <div className='content'>
                 <Photography {...props} />
               </div>
             </div>
@@ -151,8 +183,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/brand/typography"
           render={(props) => (
             <div className={custom.content}>
-              <div className="Nav-container">
-                <Navigation index={10} />
+              <Navigation index={10} />
+              <div className='content'>
                 <Typography {...props} />
               </div>
             </div>
@@ -162,9 +194,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/tokens/getting-started"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Design Tokens: Getting Started')}
-              <div className="Nav-container">
-                <Navigation index={11} />
+              <Navigation index={11} />
+              <div className='content'>
                 <Tokens {...props} />
               </div>
             </div>
@@ -174,9 +205,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/tokens/border-radius"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Design Tokens: Border Radius')}
-              <div className="Nav-container">
-                <Navigation index={12} />
+              <Navigation index={12} />
+              <div className='content'>
                 <BorderRadius {...props} />
               </div>
             </div>
@@ -186,9 +216,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/tokens/border-size"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Design Tokens: Border Size')}
-              <div className="Nav-container">
-                <Navigation index={13} />
+              <Navigation index={13} />
+              <div className='content'>
                 <BorderSize {...props} />
               </div>
             </div>
@@ -198,9 +227,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/tokens/breakpoint"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Design Tokens: Breakpoints')}
-              <div className="Nav-container">
-                <Navigation index={14} />
+              <Navigation index={14} />
+              <div className='content'>
                 <Breakpoints {...props} />
               </div>
             </div>
@@ -210,9 +238,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/tokens/color"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Design Tokens: Color')}
-              <div className="Nav-container">
-                <Navigation index={15} />
+              <Navigation index={15} />
+              <div className='content'>
                 <Colors {...props} />
               </div>
             </div>
@@ -222,9 +249,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/tokens/font-family"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Design Tokens: Font Family')}
-              <div className="Nav-container">
-                <Navigation index={16} />
+              <Navigation index={16} />
+              <div className='content'>
                 <FontFamily {...props} />
               </div>
             </div>
@@ -234,9 +260,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/tokens/font-size"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Design Tokens: Font Size')}
-              <div className="Nav-container">
-                <Navigation index={17} />
+              <Navigation index={17} />
+              <div className='content'>
                 <FontSize {...props} />
               </div>
             </div>
@@ -246,9 +271,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/tokens/font-weight"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Design Tokens: Font Weight')}
-              <div className="Nav-container">
-                <Navigation index={18} />
+              <Navigation index={18} />
+              <div className='content'>
                 <FontWeight {...props} />
               </div>
             </div>
@@ -258,9 +282,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/tokens/line-height"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Design Tokens: Line Height')}
-              <div className="Nav-container">
-                <Navigation index={19} />
+              <Navigation index={19} />
+              <div className='content'>
                 <LineHeight {...props} />
               </div>
             </div>
@@ -270,9 +293,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/tokens/shadow"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Design Tokens: Shadow')}
-              <div className="Nav-container">
-                <Navigation index={20} />
+              <Navigation index={20} />
+              <div className='content'>
                 <Shadow {...props} />
               </div>
             </div>
@@ -282,9 +304,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/tokens/spacing"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Design Tokens: Spacing')}
-              <div className="Nav-container">
-                <Navigation index={21} />
+              <Navigation index={21} />
+              <div className='content'>
                 <Spacing {...props} />
               </div>
             </div>
@@ -294,10 +315,20 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/tokens/z-index"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Design Tokens: Z-index')}
-              <div className="Nav-container">
-                <Navigation index={22} />
+              <Navigation index={22} />
+              <div className='content'>
                 <Zindex {...props} />
+              </div>
+            </div>
+          )}
+        />
+        <Route
+          path="/components/getting-started"
+          render={(props) => (
+            <div className={custom.content}>
+              <Navigation index={27} />
+              <div className='content'>
+                <Components {...props} />
               </div>
             </div>
           )}
@@ -306,8 +337,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/components/modal"
           render={(props) => (
             <div className={custom.content}>
-              <div className="Nav-container">
-                <Navigation index={24} />
+              <Navigation index={28} />
+              <div className='content'>
                 <Modal {...props} />
               </div>
             </div>
@@ -317,8 +348,8 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="/components/snackbar"
           render={(props) => (
             <div className={custom.content}>
-              <div className="Nav-container">
-                <Navigation index={25} />
+              <Navigation index={29} />
+              <div className='content'>
                 <Snackbar {...props} />
               </div>
             </div>
@@ -328,8 +359,6 @@ export default function Routing({ onToggle, transitioning, version }) {
           path="*"
           render={(props) => (
             <div className={custom.content}>
-              {setHeadline('Page Not Found')}
-              {setIndex('null')}
               <NotFound />
             </div>
           )}

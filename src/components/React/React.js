@@ -1,5 +1,4 @@
 import React from 'react';
-import Package from '../../../package.json';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 import {
@@ -11,11 +10,6 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { color, borderRadius, spacing, fontSize } from '@edma/design-tokens/';
 import ScrollToTopController from '../ScrollToTopController';
-
-// Current version synced from package.json
-const tokensVerRaw = Package.devDependencies["@edma/design-tokens"],
-    tokensArray = tokensVerRaw.split('^'),
-    tokensVer = tokensArray[1];
 
 const useStyles = makeStyles (theme => ({
     root: {
@@ -92,40 +86,38 @@ const useStyles = makeStyles (theme => ({
     }
 }));
 
-const Tokens = () => {
+const Components = () => {
     const custom = useStyles();
 
     return (
         <Box className={`Content-inner ${custom.content}`} boxShadow={16}>
             <ScrollToTopController />
             <div className='inner-content'>
-                <Typography variant="h1">Design Tokens</Typography>
+                <Typography variant="h1">Component Library</Typography>
                 <Typography variant="h3" className={custom.h2}>
-                    In <a href="https://bradfrost.com/blog/post/atomic-web-design/#atoms" target="_blank" rel="noopener noreferrer" className={custom.anchor}>Atomic Design</a> terms, Design Tokens store our visual design Atoms, and translate them between visual assets and code. We use them in place of hard-coded values (such as hex values for color or pixel values for spacing) in order to maintain scalable and consistent UI.
-                    <br/><br/>
-                    <strong>Current Version: <a href={`https://www.npmjs.com/package/@edma/design-tokens/v/${tokensVer}`} target="_blank" rel="noopener noreferrer" className={custom.anchor}>{tokensVer}</a></strong>
+                    Our Component Library a collection of interface elements that can be reused across PennyMac applications. This frees us up to focus on solving unique, innovative challenges; rather than reinventing interface elements that are already in use.
                 </Typography>
                 <Box mt={7} mb={7}>
                     <Divider className={custom.divider} />
                 </Box>
                 <Box mb={3}>
                     <Typography variant="h2">
-                        Installing Design Tokens
+                        Installing The Component Library
                     </Typography>
                 </Box>
                 <Box mb={3}>
                     <Typography variant="body1">
-                        <code className={custom.code}>npm i @edma/design-tokens --save-dev</code>
+                        Components are simple to install in any project. All of our React Components can be accessed <a href="https://www.npmjs.com/package/@edma/craft-components" target="_blank" rel="noopener noreferrer" className={custom.anchor}>via NPM</a>.
                     </Typography>
                 </Box>
-                <Box mb={3}>
+                <Box mb={7}>
                     <Typography variant="body1">
-                        Design Tokens are simple to install in any project. All of our design tokens are managed <a href="https://www.npmjs.com/package/@edma/design-tokens" target="_blank" rel="noopener noreferrer" className={custom.anchor}>via NPM</a>.
+                        On the command line, run <code className={custom.code}>npm i @edma/craft-components --save-dev</code> to install the components package into your project as a dev dependency. You can then import React components into your project as needed.
                     </Typography>
                 </Box>
                 <Box mb={3}>
                     <Typography variant="h2">
-                        Including Design Tokens
+                        Including Components In Your Project
                     </Typography>
                 </Box>
                 <Box mb={3}>
@@ -135,76 +127,43 @@ const Tokens = () => {
                 </Box>
                 <Box mb={3}>
                     <Typography variant="body1">
-                        Design tokens can be modularly imported into any JavaScript application. The same also works with TypeScript <code>.tsx</code> files. The example below imports color, font, font size, and font weight tokens using a single import. Tokens can optionally be imported individually as well.
+                        React components can be imported modularly using JavaScript. The same import also works with TypeScript <code>.tsx</code> files. The example below imports the Modal and Snackbar components using a single import. Components can optionally be imported individually as well.
                     </Typography>
                 </Box>
                 <Box mb={3}>
                     <Typography variant="body1">
-                        <code className={custom.code}>import &#123; color, font, fontSize, weight &#125; from '@edma/design-tokens/';</code>
+                        <code className={custom.code}>import &#123; Modal, Snackbar &#125; from '@edma/react-components';</code>
                     </Typography>
                 </Box>
                 <Box mb={7}>
                     <Typography variant="body1" className={custom.callout}>
-                        Note: specific import commands can be found on the individual token pages throughout this section.
-                    </Typography>
-                </Box>
-                <Box mb={3}>
-                    <Typography variant="h3">
-                        Sass (SCSS)
-                    </Typography>
-                </Box>
-                <Box mb={3}>
-                    <Typography variant="body1">
-                        All SCSS design tokens live in a single variables document, which can be imported into your SCSS stylesheets using the command below.
-                    </Typography>
-                </Box>
-                <Box mb={7}>
-                    <Typography variant="body1">
-                        <code className={custom.code}>@import '~@edma/design-tokens/_scss/variables';</code>
-                    </Typography>
-                </Box>
-                <Box mb={3}>
-                    <Typography variant="h3">
-                        CSS 3
-                    </Typography>
-                </Box>
-                <Box mb={3}>
-                    <Typography variant="body1">
-                        All CSS design tokens live in a single CSS 3 variables document, which can be imported into your CSS stylesheets using the command below.
-                    </Typography>
-                </Box>
-                <Box mb={7}>
-                    <Typography variant="body1">
-                        <code className={custom.code}>@import '~@edma/design-tokens/css/variables';</code>
+                        Note: specific import commands can be found on the individual component pages throughout this section.
                     </Typography>
                 </Box>
                 <Box mb={3}>
                     <Typography variant="h2">
-                        Contributing To Design Tokens
+                        Contributing Components To The Library
                     </Typography>
                 </Box>
                 <Box mb={3}>
                     <Typography variant="body1">
-                        Design Tokens at PennyMac begin their lives in our <a href="https://www.figma.com/file/SKkSxha8LQG7lPvIJ2PWHf/Design-Tokens?node-id=0%3A1" target="_blank" rel="noopener noreferrer" className={custom.anchor}>Figma document</a>. Running an NPM script, <code className={custom.code}>npm run tokens</code>, will transpile all existing tokens from Figma into 4 supported languages: JavaScript ES6 modules, CSS3 variables, SCSS variables, and raw JSON.
-                    </Typography>
-                </Box>
-                <Box mb={3}>
-                    <Typography variant="body1">
-                        Once the token files have been generated and tested, they can then be reversioned and deployed to NPM for inclusion in your projects by running <code className={custom.code}>npm publish</code>.
+                        React Components at PennyMac begin their lives in an actual application. We use this as our proving ground. Components that test well in the wild, and which present obvious reusable use cases, will eventually be promoted into the component library.
+                        <br/><br/>
+                        The best way to contribute new components to the library is to focus instead on creating great new designs for your apps, with a mind for ideas that might make good components down the line.
                     </Typography>
                 </Box>
                 <div className="Content__wrapper">
                     <div className="Content__section">
                         <Box className={custom.prev}>
                             <Typography variant="body2">
-                                <Link to="/brand/typography"><ArrowBackIosIcon />Brand: Typography</Link>
+                                <Link to="/tokens/z-index"><ArrowBackIosIcon />Patterns: Figma Pattern Library</Link>
                             </Typography>
                         </Box>
                     </div>
                     <div className="Content__section">
                     <Box className={custom.next}>
                         <Typography variant="body2">
-                            <Link to="/tokens/border-radius">Design Tokens: Border Radius<ArrowForwardIosIcon /></Link>
+                            <Link to="/components/modal">Components: Modal<ArrowForwardIosIcon /></Link>
                         </Typography>
                     </Box>
                     </div>
@@ -214,4 +173,4 @@ const Tokens = () => {
     );
 }
 
-export default Tokens;
+export default Components;
