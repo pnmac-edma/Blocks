@@ -1,63 +1,18 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
-import { color, fontSize } from '@edma/design-tokens/';
+import { color } from '@edma/design-tokens/';
 import ScrollToTopController from '../ScrollToTopController';
 import SplitText from '../SplitText';
 import { ReactComponent as ArrowDiag } from '../../assets/img/arrow.diag.svg';
 
 const useStyles = makeStyles(theme => ({
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(1),
-    background: theme.palette.type === 'light' ? color.white : color.black,
-    textAlign: 'left'
-  },
   anchor: {
     color: theme.palette.type === 'light' ? color.y700 : color.y300,
     textDecoration: 'none',
 
     '&:hover': {
       textDecoration: 'underline'
-    }
-  },
-  divider: {
-    height: 4,
-    color: theme.palette.type === 'light' ? color.g100 : color.g700
-  },
-  listItem: {
-    display: 'block',
-    marginBottom: '3rem',
-    '& .MuiListItemText-primary': {
-      fontSize: fontSize['1'],
-      color: theme.palette.type === 'light' ? color.v700 : color.y300,
-    }
-  },
-  headingSpan: {
-    fontWeight: 'bold'
-  },
-  next: {
-    position: 'relative',
-    marginTop: '2rem',
-    width: '100%',
-    textAlign: 'right',
-
-    '& a': {
-      color: theme.palette.type === 'light' ? color.black : color.white,
-      padding: 16,
-      borderRadius: 4,
-      transition: 'all .2s ease-in-out',
-      textDecoration: 'none',
-
-      '&:hover': {
-        background: theme.palette.type === 'light' ? color.g100 : color.g900
-      },
-
-      '& svg': {
-        position: 'relative',
-        top: 6,
-        left: 8
-      }
     }
   },
   huge: {

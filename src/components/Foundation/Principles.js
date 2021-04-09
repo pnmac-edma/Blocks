@@ -1,113 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
-import { color, fontSize } from '@edma/design-tokens/';
+import { color } from '@edma/design-tokens/';
 import ScrollToTopController from '../ScrollToTopController';
 import SplitText from '../SplitText';
 import { ReactComponent as ArrowDiag } from '../../assets/img/arrow.diag.svg';
 
 const useStyles = makeStyles(theme => ({
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(1),
-    background: theme.palette.type === 'light' ? color.white : color.black,
-    textAlign: 'left'
-  },
-  divider: {
-    height: 4,
-    color: theme.palette.type === 'light' ? color.g100 : color.g700
-  },
-  listItem: {
-    display: 'block',
-    marginBottom: '3rem',
-    '& .MuiListItemText-primary': {
-      fontSize: fontSize['1'],
-      color: theme.palette.type === 'light' ? color.v700 : color.y300,
-    }
-  },
-  headingSpan: {
-    fontWeight: 'bold'
-  },
-  explore: {
-    position: 'absolute',
-    right: '-2rem',
-    width: 380,
-    height: 427,
-    top: -20,
-    overflow: 'visible'
-  },
-  learn: {
-    position: 'absolute',
-    right: '-2rem',
-    top: 200,
-    width: 315,
-    height: 427,
-    overflow: 'visible'
-  },
-  simplify: {
-    position: 'absolute',
-    right: '-2rem',
-    top: 100,
-    width: 315,
-    height: 427,
-    overflow: 'visible'
-  },
-  collab: {
-    position: 'absolute',
-    right: '-2rem',
-    top: 100,
-    width: 315,
-    height: 427,
-    overflow: 'visible'
-  },
-  prev: {
-    position: 'relative',
-    marginTop: '2rem',
-    width: '100%',
-    textAlign: 'left',
-
-    '& a': {
-      color: theme.palette.type === 'light' ? color.black : color.white,
-      padding: 16,
-      borderRadius: 4,
-      transition: 'all .2s ease-in-out',
-      textDecoration: 'none',
-
-      '&:hover': {
-        background: theme.palette.type === 'light' ? color.g100 : color.g900
-      },
-
-      '& svg': {
-        position: 'relative',
-        top: 6,
-        right: 4
-      }
-    }
-  },
-  next: {
-    position: 'relative',
-    marginTop: '2rem',
-    width: '100%',
-    textAlign: 'right',
-
-    '& a': {
-      color: theme.palette.type === 'light' ? color.black : color.white,
-      padding: 16,
-      borderRadius: 4,
-      transition: 'all .2s ease-in-out',
-      textDecoration: 'none',
-
-      '&:hover': {
-        background: theme.palette.type === 'light' ? color.g100 : color.g900
-      },
-
-      '& svg': {
-        position: 'relative',
-        top: 6,
-        left: 8
-      }
-    }
-  },
   huge: {
     color: theme.palette.type === 'light' ? color.y500 : color.y300
   }
