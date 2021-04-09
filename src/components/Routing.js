@@ -55,7 +55,7 @@ export default function Routing({ onToggle, transitioning, version }) {
         className="switch-wrapper"
       >
         <Route
-          path="/"
+          path="/Home"
           exact
           render={(props) => (
             <div className={custom.content}>
