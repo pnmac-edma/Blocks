@@ -4,7 +4,7 @@ import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import homeTheme from './Theme';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { color, fontSize } from '@edma/design-tokens/';
+import { color, font, fontSize } from '@edma/design-tokens/';
 import Routing from './components/Routing';
 
 // Current version synced from package.json
@@ -14,7 +14,7 @@ const appVer = Package.version;
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    fontFamily: 'Open Sans'
+    fontFamily: font.body
   }
 }));
 

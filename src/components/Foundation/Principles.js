@@ -1,22 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {
-  Box,
-  Divider,
-  Grid,
-  List,
-  ListItem,
-  Typography
-} from '@material-ui/core';
 import { Link } from "react-router-dom";
 import { color, fontSize } from '@edma/design-tokens/';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ScrollToTopController from '../ScrollToTopController';
-import { ReactComponent as ExploreGraphic } from '../../assets/img/graphic.explore.light.svg';
-import { ReactComponent as LearnGraphic } from '../../assets/img/graphic.learn.light.svg';
-import { ReactComponent as SimplifyGraphic } from '../../assets/img/graphic.simplify.light.svg';
-import { ReactComponent as CollabGraphic } from '../../assets/img/graphic.collaborate.light.svg';
+import SplitText from '../SplitText';
+import { ReactComponent as ArrowDiag } from '../../assets/img/arrow.diag.svg';
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -119,126 +107,100 @@ const useStyles = makeStyles(theme => ({
         left: 8
       }
     }
+  },
+  huge: {
+    color: theme.palette.type === 'light' ? color.y500 : color.y300
   }
 }));
 
 export default function Principles(props) {
-  const custom = useStyles();
-    return (
-      <Box className={`Content-inner ${custom.content}`} boxShadow={16}>
-        <ScrollToTopController />
+  const classes = useStyles();
 
-        <div className="inner-content">
-          <Typography variant="h1" gutterBottom>
-            Design Principles
-          </Typography>
-          <Typography variant="h3">
-            At PennyMac, we empower people to purchase their own homes. Team Craft builds products, tools, and services to make it easier for our colleagues to excel.
-            <br /><br />
-            These principles are the core of how we design and build experiences on Team Craft.
-          </Typography>
-          <Box mt={7} mb={7}>
-            <Divider className={custom.divider} />
-          </Box>
-          <List>
-            <ListItem className={custom.listItem}>
-              <Grid container spacing={2}>
-                <Grid item>
-                  <Typography variant="h2">
-                    Explore
-                  </Typography>
-                  <Typography variant="body1">
-                    We embrace the unknown by experimenting with <strong>fresh ideas</strong> and <strong>new technologies</strong> in order to <strong>solve problems</strong>. We think boldly and dare to be innovative and disruptive. We aren’t afraid to break things, because we know that we can fix them. We explore as many unusual and new ideas as possible in order to <strong>innovate</strong>, even if that sometimes leads to uncomfortable or controversial outcomes. We validate everything through iterative, measured analysis and testing to keep ourselves honest.
-                    <br/><br/>
-                    We reject boundaries. <strong>“Not invented here” doesn’t exist.</strong> We communicate our bold direction and we accept being misunderstood for long periods of time, so that we can bring new great visions into the world.
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <ExploreGraphic className={custom.explore} />
-                </Grid>
-              </Grid>
-            </ListItem>
-            <ListItem className={custom.listItem}>
-              <Grid container spacing={2}>
-                <Grid item>
-                  <Typography variant="h2">
-                    Learn
-                  </Typography>
-                  <Typography variant="body1">
-                    We obsess over the people who use our products and we make no assumptions. We understand that only by prioritizing <strong>research, analysis, and testing with our users</strong> can we truly understand them. We <strong>talk to our users</strong>, seeking their <strong>feedback</strong> early and often throughout the product life cycle. We work to validate all opinions, especially our own, by practicing dutiful modesty and remaining humble. We understand that we do not have all the answers, and that all ideas are assumptions until tested. We stay true to the data by coming forward with information, even when it might be awkward or embarrassing.
-                    <br/><br/>
-                    We <strong>empathize with users</strong> and treat them like our trusted partners, and we want them to consider us the same way.
-                    <br/><br/>
-                    As engineers, we empathize with users by designing functionality with an application’s interface in mind, and by always considering how a service will be accessed. By aligning functionality to how people use the UI, we are able to <strong>walk in the user’s shoes</strong>. We also work to make sure that our efforts are always prioritized based on user needs.
-                    <br/><br/>
-                    As developers, we empathize with users by making sure the interface and its controls work how and when users want them to; across different devices and platforms. We prioritize clean, easy to read code; and fluid, dynamic interactions.
-                    <br/><br/>
-                    As designers, we empathize with users by <strong>listening, asking questions, challenging assumptions, and remaining humble</strong> against the user’s opinions. We make sure every feature adds value for users and for the business. We ensure interfaces have clear and visually prioritized calls to action, and we avoid reinventing the wheel when established conventions help ground newer users.
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <LearnGraphic className={custom.learn} />
-                </Grid>
-              </Grid>
-            </ListItem>
-            <ListItem className={custom.listItem}>
-              <Grid container spacing={2}>
-                <Grid item>
-                  <Typography variant="h2">
-                    Simplify
-                  </Typography>
-                  <Typography variant="body1">
-                    We understand that creating something simple is anything but, so we design our products to be <strong>fundamentally useful</strong> for our users. We make sure that every design element works with, and contributes to, the larger whole. <strong>Less is more.</strong> Motion is used to provide meaning, roadblocks are removed for the user, required steps are optimized, and form fields are auto-filled when possible. We make sure that our designs are <strong>unambiguous, easy to follow, and straight forward</strong>. We respect our users’ time and the impact we have on their lives, and we ensure they always understand what is happening and why. We prioritize core functionality. Content over chrome.
-                    <br/><br/>
-                    We get out of our user’s way by leaving only the most essential elements on the screen. Reducing UI to its minimal roots often has a beneficial impact on overall aesthetics. Where possible, we make navigation elements from the content itself.
-                    <br/><br/>
-                    We also apply this principle operationally. We break big tasks into smaller, more manageable ones. As developers, we focus on fundamentals and simplicity through our efficient code structures and componentized work streams. We systemize our assets and take advantage of agile workflows to make it faster and easier for us to rapidly craft new products.
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <SimplifyGraphic className={`simplify ${custom.simplify}`} />
-                </Grid>
-              </Grid>
-            </ListItem>
-            <ListItem className={custom.listItem}>
-              <Grid container spacing={2}>
-                <Grid item>
-                  <Typography variant="h2">
-                    Collaborate
-                  </Typography>
-                  <Typography variant="body1">
-                    Our team is greater than the sum of its parts. We each step up every day to help each other do what needs to be done. When we see an opportunity to make something better, we do it. <strong>“Not my job” doesn’t exist here.</strong> We understand that by working together, we achieve more.
-                    <br/><br/>
-                    We treat our users like our most important collaborators. <strong>People support what they help build.</strong> We include users early and often in the decision making process. We understand that engagement requires more than just communication. We want our users to feel like they share a common goal with us.
-                    <br/><br/>
-                    We embrace change, always ready to adopt new behaviors, values, and attitudes. We <strong>learn from each other</strong> and are each empowered to make decisions on functionality and design. Each of us understands the value of what we’re building. Though we may not always agree, we always reach consensus by treating each other with <strong>respect and dignity</strong>.
-                    <br/><br/>
-                    As developers, we review each other’s code in order to realize constant improvement. We embrace open source. We publish our work and we share our ideas at every turn. This enables us and others to understand, modify, improve, distribute, and use our work more effectively. It allows us to collaborate in our efforts not just with each other, but with the entire world.
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <CollabGraphic className={custom.collab} />
-                </Grid>
-              </Grid>
-            </ListItem>
-          </List>
-          <div className="Content__wrapper">
-            <div className="Content__section">
-              <Box className={custom.prev}>
-                <Typography variant="body2">
-                  <Link to="/foundation/getting-started"><ArrowBackIosIcon />Foundation: Getting Started</Link>
-                </Typography>
-              </Box>
-            </div>
-            <div className="Content__section">
-              <Box className={custom.next}>
-                <Typography variant="body2">
-                  <Link to="/foundation/language">Foundation: Language<ArrowForwardIosIcon /></Link>
-                </Typography>
-              </Box>
-            </div>
+  return (
+    <>
+      <ScrollToTopController />
+      <div className='mask mask--huge'>
+        <div className={`huge ${classes.huge}`}>01<span className='huge--num'>b</span></div>
+      </div>
+      <span className='mask'>
+        <div className='internal-heading'>Design Principles</div>
+      </span>
+      <div className='internal-intro'>
+        <SplitText copy="Team Craft builds tools and services that make it easier for our coworkers to help people realize their dream of home." />
+        <br/><br/>
+        <SplitText copy="These principles are the core of how we design experiences on Team Craft." />
+      </div>
+      <div className='internal-heading'>Explore</div>
+      <div className='internal-paragraph'>
+        Embrace the unknown<br/>
+        Experiment with fresh ideas and new technologies in order to solve problems<br/>
+        Think boldly<br/>
+        Dare to be innovative and disruptive<br/>
+        Break things, and then fix them<br/>
+        Have the uncomfortable conversations<br/>
+        Stay honest<br/>
+        Reject boundaries: “Not invented here” doesn’t exist<br/>
+        Accept being misunderstood for long periods of time
+      </div>
+      <div className='internal-heading'>Learn</div>
+      <div className='internal-paragraph'>
+        Obsess over the people who use our products<br/>
+        Make no assumptions<br/>
+        Prioritize research, analysis, and testing with users<br/>
+        Seek feedback early and often<br/>
+        Validate all opinions, especially your own<br/>
+        Bring data forward, even when it might be controversial or embarrassing<br/>
+        Treat users like trusted partners<br/>
+        Prioritize based on user needs<br/>
+        Listen, ask questions, challenge assumptions, and stay humble<br/>
+        Make sure every feature adds value for users and for the business
+      </div>
+      <div className='internal-heading'>Simplify</div>
+      <div className='internal-paragraph'>
+        Design products that are fundamentally useful for people<br/>
+        Make sure that every design element works with, and contributes to, the larger whole<br/>
+        Less is more<br/>
+        Use motion to provide meaning<br/>
+        Remove roadblocks for people<br/>
+        Optimize required steps<br/>
+        Auto-fill form fields<br/>
+        Make unambiguous, easy to follow, and straight forward designs<br/>
+        Respect our users’ time and the impact we have on their lives<br/>
+        Ensure people always understand what is happening and why<br/>
+        Prioritize content over chrome<br/>
+        Reduce UI to its most essential ingredients<br/>
+        Ensure interfaces have clear and visually prioritized calls to action<br/>
+        Avoid reinventing the wheel
+      </div>
+      <div className='internal-heading'>Collaborate</div>
+      <div className='internal-paragraph'>
+        We are greater than the sum of our parts<br/>
+        Step up every day to help the team do what needs to be done<br/>
+        When an opportunity appears to make something better, do it<br/>
+        “Not my job” doesn’t exist here<br/>
+        Work together to achieve more<br/>
+        Treat our users like our most important collaborators<br/>
+        Embrace change<br/>
+        Adopt new behaviors, values, and attitudes<br/>
+        Learn from team mates and make decisions<br/>
+        Treat people with respect and dignity<br/>
+        Embrace open source<br/>
+        Publish your work and share your ideas at every turn<br/>
+        Work not just with each other, but with the world
+      </div>
+      <div className='Footer Footer--foundation'>
+        <div className='Footer__left'></div>
+        <Link to='/foundation/language/' className='Footer__right'>
+          <div className='Footer__container'>
+            <div className='Footer__heading' data-num='01' data-let='c'>next</div>
           </div>
-        </div>
-      </Box>
-    );
+          <ArrowDiag className='Footer__icon' />
+          <div className='Footer__link'>
+            <div className='Footer__num'>01c.</div>
+            <div className='Footer__title'>Language</div>
+          </div>
+        </Link>
+      </div>
+    </>
+  );
 };

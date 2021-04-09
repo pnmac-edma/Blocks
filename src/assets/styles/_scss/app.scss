@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: '$font-body';
+  font-family: $font-body;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: $color-g-50;
@@ -14,6 +14,15 @@ code {
   font-family: $font-mono;
   padding: $spacing-1;
   border-radius: $border-radius-1;
+}
+
+.mask {
+  overflow: hidden;
+
+  &.mask--huge {
+    height: 170px;
+    margin-bottom: 104px;
+  }
 }
 
 .App {
@@ -126,7 +135,7 @@ code {
 
 @keyframes card-1 {
   0% {
-    transform: translate3d(0, 24px, 0);
+    transform: translate3d(0, 8px, 0);
     opacity: 0;
   }
   100% {
@@ -137,7 +146,7 @@ code {
 
 @keyframes card-2 {
   0% {
-    transform: translate3d(24px, 24px, 0);
+    transform: translate3d(8px, 8px, 0);
     opacity: 0;
   }
   100% {
@@ -148,7 +157,7 @@ code {
 
 @keyframes card-3 {
   0% {
-    transform: translate3d(24px, 24px, 0);
+    transform: translate3d(8px, 8px, 0);
     opacity: 0;
   }
   100% {
@@ -159,7 +168,7 @@ code {
 
 @keyframes card-4 {
   0% {
-    transform: translate3d(32px, 32px, 0);
+    transform: translate3d(16px, 16px, 0);
     opacity: 0;
   }
   100% {

@@ -5,6 +5,8 @@
     font-weight: bold;
     margin-bottom: 48px;
     margin-left: -4px;
+    transform: translate3d(0, 225px, 0);
+    animation: huge 0.7s cubic-bezier(0.03, 0.74, 0.3, 0.99) forwards;
 
     .huge--num {
         font-size: 100px;
@@ -12,10 +14,34 @@
     }
 }
 
+@keyframes huge {
+    0% {
+        transform: translate3d(0, 225px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
 .internal-heading {
     font-size: 40px;
     font-family: $font-heading;
     font-weight: bold;
+}
+
+.mask .internal-heading {
+    transform: translate3d(0, 48px, 0);
+    animation: heading-intro 0.7s cubic-bezier(0.03, 0.74, 0.3, 0.99) forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes heading-intro {
+    0% {
+        transform: translate3d(0, 48px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
 }
 
 .internal-intro {
@@ -27,6 +53,23 @@
     line-height: 1.7;
     margin-top: 88px;
     margin-bottom: 120px;
+
+    span span {
+        display: inline-block;
+        white-space: pre;
+        height: 32px;
+        transform: translate3d(0, 32px, 0);
+        animation: intro-text 1s cubic-bezier(0.03, 0.74, 0.3, 0.99) forwards;
+    }
+}
+
+@keyframes intro-text {
+    0% {
+        transform: translate3d(0, 32px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
 }
 
 .internal-paragraph {
@@ -148,7 +191,10 @@
 
 .Footer--foundation {
     .Footer__heading:after,
-    .Footer__heading:before,
+    .Footer__heading:before {
+        color: $color-y-500;
+    }
+
     .Footer__num:after {
         color: $color-y-700;
     }
