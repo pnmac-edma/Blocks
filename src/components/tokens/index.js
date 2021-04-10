@@ -70,11 +70,11 @@ const Tokens = () => {
       <div className='internal-heading'>Importing Design Tokens</div>
       <div className='internal-paragraph'>
         <div className={classes.note}>
-          Note: available import commands can be found on the individual token pages.
+          Note: Additional import commands can be found on the individual token pages.
         </div>
         <div className={classes.section}>
           <strong>Javascript / Typescript</strong><br/><br/>
-          Design tokens can be modularly imported into any JavaScript application. The same also works with TypeScript .tsx files. The example below imports color, font, font size, and font weight tokens using a single import. Tokens can optionally be imported individually as well.
+          Design tokens can be modularly imported into any JavaScript or TypeScript application. The example below imports color, font, font size, and font weight tokens.
           <div className={classes.code}>
             import &#10100; color, font, fontSize, weight &#10101; from '@edma/design-tokens/';
           </div>

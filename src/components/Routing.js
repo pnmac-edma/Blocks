@@ -57,7 +57,7 @@ export default function Routing({ onToggle, transitioning, version }) {
         <Route
           path="/Home"
           exact
-          render={(props) => (
+          render={(props) => ( // Landing page for dh-pages
             <div className={custom.content}>
               <Navigation />
               <div className='content'>
@@ -65,6 +65,24 @@ export default function Routing({ onToggle, transitioning, version }) {
                   {...props}
                   onToggle={onToggle}
                   transitioning={transitioning}
+                  version={version}
+                />
+              </div>
+            </div>
+          )}
+        />
+        <Route
+          path="/"
+          exact
+          render={(props) => ( // Landing page for dev
+            <div className={custom.content}>
+              <Navigation />
+              <div className='content'>
+                <Home
+                  {...props}
+                  onToggle={onToggle}
+                  transitioning={transitioning}
+                  version={version}
                 />
               </div>
             </div>

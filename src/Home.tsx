@@ -2,13 +2,14 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 import { color, font } from '@edma/design-tokens';
+// import Button from './components/Button/Button';
 
 const useStyles = makeStyles(theme => ({
   version: {
     position: 'fixed',
     bottom: 64,
     right: 32,
-    fontFamily: 'Gilroy-Regular',
+    fontFamily: 'Gilroy',
     fontWeight: 'normal',
     fontSize: 14,
     transform: 'rotate(90deg)'
@@ -50,7 +51,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Home(props) {
+export default function Home(props:any) {
   const classes = useStyles();
 
   return (
@@ -98,7 +99,7 @@ export default function Home(props) {
           </Link>
         </div>
       </div>
-      <div className={classes.version}>v2.0.0</div>
+      <div className={classes.version}>v{props.version}</div>
     </>
   )
 };

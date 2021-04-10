@@ -19,7 +19,7 @@
     .Footer__title {
         display: inline-block;
         font-size: 20px;
-        font-family: 'Gilroy-Regular';
+        font-family: 'Gilroy';
         font-weight: normal;
     }
 
@@ -63,7 +63,7 @@
     .Footer__title {
         display: inline-block;
         font-size: 20px;
-        font-family: 'Gilroy-Regular';
+        font-family: 'Gilroy';
         font-weight: normal;
     }
 
@@ -157,6 +157,14 @@
     }
 }
 
+.Footer--brand {
+    .Footer__heading:after,
+    .Footer__heading:before,
+    .Footer__num:after {
+        color: $color-b-600;
+    }
+}
+
 .dark .Footer--foundation {
     .Footer__heading:after,
     .Footer__heading:before,
@@ -170,6 +178,14 @@
     .Footer__heading:before,
     .Footer__num:after {
         color: $color-r-400;
+    }
+}
+
+.dark .Footer--brand {
+    .Footer__heading:after,
+    .Footer__heading:before,
+    .Footer__num:after {
+        color: $color-b-300;
     }
 }
 

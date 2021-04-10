@@ -20,8 +20,8 @@ const navStyles = makeStyles(theme => ({
   },
   nested: {
     paddingLeft: 5,
-    fontWeight: 'regular',
-    fontFamily: 'Gilroy-Regular',
+    fontWeight: 'normal',
+    fontFamily: 'Gilroy',
     fontSize: 16,
     textAlign: 'left',
     margin: '24px 0'
