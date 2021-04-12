@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 import { color, font } from '@edma/design-tokens';
-// import Button from './components/Button/Button';
+import Button from './components/Button/Button';
 
 const useStyles = makeStyles(theme => ({
   version: {
@@ -99,6 +99,7 @@ export default function Home(props:any) {
           </Link>
         </div>
       </div>
+      <span>This is an <Button>Example Button</Button>.</span>
       <div className={classes.version}>v{props.version}</div>
     </>
   )
