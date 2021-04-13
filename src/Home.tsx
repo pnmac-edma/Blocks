@@ -63,10 +63,10 @@ export default function Home(props:any) {
         <div className={`${classes.card} card-1`}>
           <div className={classes.cardHeading}>Foundation</div>
           <div className={classes.cardDescription}>
-            Find out how we make sure that our design is accessible, user focused, and intentional.
+            Every good home is built on a solid foundation. Ours is no exception.
           </div>
           <Link to="/foundation/getting-started/" className={classes.cardLink}>
-            View Content Guidelines
+            View Guiding Principles
           </Link>
         </div>
         <div className={`${classes.card} card-2`}>
@@ -81,21 +81,21 @@ export default function Home(props:any) {
       </div>
       <div className={classes.cards}>
         <div className={`${classes.card} card-3`}>
-          <div className={classes.cardHeading}>Design</div>
+          <div className={classes.cardHeading}>Components</div>
           <div className={classes.cardDescription}>
-            See how we put the pieces together to create meaningful product experiences.
+            Components are essential building blocks for rapidly prototyping new products and features.
           </div>
-          <Link to="/foundation/getting-started/" className={classes.cardLink}>
-            View Content Guidelines
+          <Link to="/components/getting-started/" className={classes.cardLink}>
+            View Components
           </Link>
         </div>
         <div className={`${classes.card} card-4`}>
-          <div className={classes.cardHeading}>Components</div>
+          <div className={classes.cardHeading}>Releases</div>
           <div className={classes.cardDescription}>
-            Use components as building blocks while you develop new products and features.
+            Track how Home has evolved over time, and stay up to date on any important changes.
           </div>
-          <Link to="/foundation/getting-started/" className={classes.cardLink}>
-            View Components
+          <Link to="/releases/" className={classes.cardLink}>
+            View Releases
           </Link>
         </div>
       </div>

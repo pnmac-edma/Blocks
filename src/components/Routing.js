@@ -221,7 +221,7 @@ export default function Routing({ onToggle, transitioning, version }) {
           )}
         />
         <Route
-          path="/tokens/getting-started"
+          path="/tokens/guidelines"
           render={(props) => (
             <div className={custom.content}>
               <Navigation index={12} />

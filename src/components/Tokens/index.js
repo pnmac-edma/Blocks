@@ -49,7 +49,7 @@ const Tokens = () => {
     <>
       <ScrollToTopController />
       <div className='mask mask--huge'>
-        <div className={`huge ${classes.huge}`}>03<span className='huge--num'>a</span></div>
+        <div className={`huge ${classes.huge}`}>03<span className='huge--num'>b</span></div>
       </div>
       <span className='mask'>
         <div className='internal-heading'>Design Tokens</div>

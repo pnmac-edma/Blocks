@@ -147,51 +147,52 @@ export default function Navigation(props) {
             </Link>
           ))}
         </div>
-        <Link to='/tokens/getting-started/' className={`Rotate-link Rotate-link--tokens ${tokensOpen ? 'Rotate-link--is-active' : ''}`} data-text="Design Tokens" onClick={handleTokensClick}>
+        <Link to='/components/getting-started/' className={`Rotate-link Rotate-link--tokens ${tokensOpen ? 'Rotate-link--is-active' : ''}`} data-text="Components" onClick={handleComponentsClick}>
           <span className={`Rotate-link__num`}>03.</span>
-          <span className={`Rotate-link__title`}>Design Tokens</span>
-        </Link>
-        <div className={tokensOpen ? classes.menuOpen : classes.menu}>
-          {[
-            {'num': 'a.', 'title': 'Getting Started'},
-            {'num': 'b.', 'title': 'Border Radius'},
-            {'num': 'c.', 'title': 'Border Size'},
-            {'num': 'd.', 'title': 'Breakpoint'},
-            {'num': 'e.', 'title': 'Color'},
-            {'num': 'f.', 'title': 'Font Family'},
-            {'num': 'g.', 'title': 'Font Size'},
-            {'num': 'h.', 'title': 'Font Weight'},
-            {'num': 'i.', 'title': 'Line Height'},
-            {'num': 'j.', 'title': 'Shadow'},
-            {'num': 'k.', 'title': 'Spacing'},
-            {'num': 'l.', 'title': 'Z-index'}
-          ].map((text, index) => (
-            <Link className={classes.anchor} key={index + 11} to={'/tokens/' + text['title'].replace(/\s+/g, '-').toLowerCase() + '/'}>
-              <div key={text['num']} className={classes.nested} data-selected={selectedIndex === index + 12}>
-                <div><span className={classes.num}>{text['num']}</span>{text['title']}</div>
-              </div>
-            </Link>
-          ))}
-        </div>
-        <Link to='/components/getting-started/' className={`Rotate-link Rotate-link--components ${componentsOpen ? 'Rotate-link--is-active' : ''}`} data-text="Components" onClick={handleComponentsClick}>
-          <span className={`Rotate-link__num`}>04.</span>
           <span className={`Rotate-link__title`}>Components</span>
         </Link>
-        <div className={componentsOpen ? classes.menuOpen : classes.menu}>
+        <div className={componentsOpen | tokensOpen ? classes.menuOpen : classes.menu}>
           {[
             {'num': 'a.', 'title': 'Getting Started'},
-            {'num': 'b.', 'title': 'Figma Components'},
-            {'num': 'c.', 'title': 'React Components'}
+            {'num': 'b.', 'title': 'Design Tokens'},
+            {'num': 'c.', 'title': 'Figma Components'},
+            {'num': 'd.', 'title': 'React Components'}
           ].map((text, index) => (
-            <Link className={classes.anchor} key={index + 28} to={'/components/' + text['title'].replace(/\s+/g, '-').toLowerCase() + '/'}>
-              <div key={text['num']} className={classes.nested} data-selected={selectedIndex === index + 28}>
-                <div><span className={classes.num}>{text['num']}</span>{text['title']}</div>
-              </div>
-            </Link>
+            <>
+              <Link className={classes.anchor} key={index + 11} to={text['num'] === 'b.' ? '/tokens/guidelines/' : '/components/' + text['title'].replace(/\s+/g, '-').toLowerCase() + '/'} onClick={text['num'] === 'b.' ? handleTokensClick : undefined}>
+                <div key={text['num']} className={classes.nested} data-selected={selectedIndex === index + 11}>
+                  <div><span className={classes.num}>{text['num']}</span>{text['title']}</div>
+                </div>
+              </Link>
+              {text['num'] === 'b.' ? 
+                <div className={tokensOpen ? classes.menuOpen : classes.menu}>
+                  {[
+                    {'title': 'Guidelines'},
+                    {'title': 'Border Radius'},
+                    {'title': 'Border Size'},
+                    {'title': 'Breakpoint'},
+                    {'title': 'Color'},
+                    {'title': 'Font Family'},
+                    {'title': 'Font Size'},
+                    {'title': 'Font Weight'},
+                    {'title': 'Line Height'},
+                    {'title': 'Shadow'},
+                    {'title': 'Spacing'},
+                    {'title': 'Z-index'}
+                  ].map((text, index) => (
+                    <Link className={classes.anchor} key={index + 11} to={'/tokens/' + text['title'].replace(/\s+/g, '-').toLowerCase() + '/'}>
+                      <div key={text['num']} className={classes.nested} data-selected={selectedIndex === index + 12}>
+                        <div><span className={classes.num}></span>{text['title']}</div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              : ''}
+            </>
           ))}
         </div>
         <Link to='/releases/' className={`Rotate-link Rotate-link--releases`} data-text="Releases">
-          <span className={`Rotate-link__num`}>05.</span>
+          <span className={`Rotate-link__num`}>04.</span>
           <span className={`Rotate-link__title`}>Releases</span>
         </Link>
       </div>
