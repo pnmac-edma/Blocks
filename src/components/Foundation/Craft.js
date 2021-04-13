@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from "react-router-dom";
 import { color } from '@edma/design-tokens/';
 import ScrollToTopController from '../ScrollToTopController';
 import Footer from '../Footer';

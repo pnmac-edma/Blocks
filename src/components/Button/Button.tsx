@@ -35,7 +35,13 @@ const Button: React.FC<ButtonProps> = ({
   const [mouseEnter, setmouseEnter] = useState('');
 
   useEffect(() => {
+    console.log(mouseEnter);
     setmouseEnter(mouseEnter);
+
+    return () => {
+      console.log(mouseEnter);
+      setmouseEnter(mouseEnter);
+    }
   }, [mouseEnter]);
 
   const handleHover = (position: any, e: any) => {
@@ -62,22 +68,20 @@ const Button: React.FC<ButtonProps> = ({
       switch (min) {
         case leftDist:
           setmouseEnter('left');
-          console.log('left');
+          //console.log('left');
         break;
         case topDist:
           setmouseEnter('top');
-          console.log('top');
+          //console.log('top');
         break;
         case rightDist:
           setmouseEnter('right');
-          console.log('right');
+          //console.log('right');
         break;
         case bottomDist:
           setmouseEnter('bottom');
-          console.log('bottom');
+          //console.log('bottom');
       }
-
-      return mouseEnter;
     }
   }
 
