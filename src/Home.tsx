@@ -99,7 +99,6 @@ export default function Home(props:any) {
           </Link>
         </div>
       </div>
-      <span>This is an <Button>Example Button</Button>.</span>
       <div className={classes.version}>v{props.version}</div>
     </>
   )

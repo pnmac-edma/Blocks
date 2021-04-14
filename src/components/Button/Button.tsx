@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { color } from '@edma/design-tokens';
-import { useMouseData } from '../CustomHooks/useMouseData';
 
 interface ButtonProps {
   type?: 'button' | 'submit' | 'reset' | undefined;
@@ -14,7 +13,6 @@ interface ButtonProps {
   onClick?: () => void;
   children: any;
   ariaLabel?: string;
-  mouseEnter?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -29,61 +27,6 @@ const Button: React.FC<ButtonProps> = ({
   ariaLabel,
   children
 }: ButtonProps) => {
-  const mouseData = useMouseData();
-  const position = mouseData.position;
-
-  const [mouseEnter, setmouseEnter] = useState('');
-
-  useEffect(() => {
-    console.log(mouseEnter);
-    setmouseEnter(mouseEnter);
-
-    return () => {
-      console.log(mouseEnter);
-      setmouseEnter(mouseEnter);
-    }
-  }, [mouseEnter]);
-
-  const handleHover = (position: any, e: any) => {
-    if (e) {
-      const bounding = e.getBoundingClientRect(),
-
-        left = bounding.left,
-        top = bounding.top,
-        right = bounding.right,
-        bottom = bounding.bottom,
-
-        x = position.clientX,
-        y = position.clientY,
-
-        // Calculate mouse distance from each side
-        leftDist = Math.abs(left - x),
-        topDist = Math.abs(top - y),
-        rightDist = Math.abs(right - x),
-        bottomDist = Math.abs(bottom - y),
-
-        min = Math.min(leftDist, topDist, rightDist, bottomDist);
-
-      // Return closest side
-      switch (min) {
-        case leftDist:
-          setmouseEnter('left');
-          //console.log('left');
-        break;
-        case topDist:
-          setmouseEnter('top');
-          //console.log('top');
-        break;
-        case rightDist:
-          setmouseEnter('right');
-          //console.log('right');
-        break;
-        case bottomDist:
-          setmouseEnter('bottom');
-          //console.log('bottom');
-      }
-    }
-  }
 
   return (
     <StyledButton
@@ -96,9 +39,6 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled ? disabled : undefined}
       onClick={onClick ? onClick : undefined}
       fullWidth={fullWidth ? fullWidth : undefined}
-      onMouseEnter={(e) => handleHover(position, e.target)}
-      onMouseLeave={(e) => handleHover(position, e.target)}
-      mouseEnter={mouseEnter}
     >
       <span>{children}</span>
     </StyledButton>
@@ -123,69 +63,10 @@ const StyledButton = styled('button')<ButtonProps>`
               border: 0;
               color: ${color.white};
               background-color: ${color.b500};
+              transition: all .2s ease-in-out;
 
-              & span {
-                position: relative;
-                z-index: 2;
-              }
-
-              &:after {
-                content: '';
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                background-color: ${color.v800};
-                transition: all .4s cubic-bezier(.96,0,.15,1);
-                transform: translate3d(0, -100%, 0);
-              }
-
-              ${props.mouseEnter === 'top' ? `
-                &:after {
-                  border-radius: 25px;
-                  transform: translate3d(0, -100%, 0);
-                }
-
-                &:hover:after {
-                  border-radius: 15px;
-                  transform: translate3d(0, 0, 0);
-                }
-              `
-              : props.mouseEnter === 'left' ? `
-                &:after {
-                  border-radius: 25px;
-                  transform: translate3d(-100%, 0, 0);
-                }
-
-                &:hover:after {
-                  border-radius: 15px;
-                  transform: translate3d(0, 0, 0);
-                }
-              `
-              : props.mouseEnter === 'bottom' ? `
-                &:after {
-                  border-radius: 25px;
-                  transform: translate3d(0, 100%, 0);
-                }
-
-                &:hover:after {
-                  border-radius: 15px;
-                  transform: translate3d(0, 0, 0);
-                }
-              `
-              : props.mouseEnter === 'right' ? `
-                &:after {
-                  border-radius: 25px;
-                  transform: translate3d(100%, 0, 0);
-                }
-
-                &:hover:after {
-                  border-radius: 15px;
-                  transform: translate3d(0, 0, 0);
-                }
-              `
-              : ''
+              &:hover {
+                background-color: ${color.b700};
               }
             `;
           case 'secondary':
@@ -194,6 +75,7 @@ const StyledButton = styled('button')<ButtonProps>`
               border: 0;
               color: ${color.white};
               background-color: ${color.v800};
+              transition: all .2s ease-in-out;
 
               &:hover {
                 background-color: ${color.v900};
