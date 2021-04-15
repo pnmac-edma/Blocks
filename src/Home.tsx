@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 import { color, font } from '@edma/design-tokens';
-import Button from './components/Button/Button';
 
 const useStyles = makeStyles(theme => ({
   version: {
